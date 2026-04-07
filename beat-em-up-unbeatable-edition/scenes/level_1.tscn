@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cpxrn7scbj7ab"]
+
+[ext_resource type="PackedScene" uid="uid://na7pfhynm1ga" path="res://scenes/beat.tscn" id="1_014kd"]
+[ext_resource type="Script" uid="uid://dih0jyg8xrpa3" path="res://scenes/scripts/level_1.gd" id="1_bswci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_014kd"]
+size = Vector2(1172, 20)
+
+[node name="Level1" type="Node2D" unique_id=1409125102]
+script = ExtResource("1_bswci")
+
+[node name="Beat" parent="." unique_id=1292217773 instance=ExtResource("1_014kd")]
+position = Vector2(312, 158)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=482270176]
+position = Vector2(0, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1300240391]
+position = Vector2(576, 0)
+shape = SubResource("RectangleShape2D_014kd")

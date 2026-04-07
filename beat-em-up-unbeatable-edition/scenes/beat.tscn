@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://na7pfhynm1ga"]
 
+[ext_resource type="Script" uid="uid://bol2h6vraxe1i" path="res://scenes/scripts/beat.gd" id="1_f00yb"]
 [ext_resource type="Texture2D" uid="uid://dcxe6j3jo51de" path="res://sprites/beat/combat/brawls-intro-01.png" id="1_ws1g2"]
 [ext_resource type="Texture2D" uid="uid://cfa4ltbnruww4" path="res://sprites/beat/combat/brawls-intro-02.png" id="2_f00yb"]
 [ext_resource type="Texture2D" uid="uid://dldxjuyheylsq" path="res://sprites/beat/combat/brawls-intro-03.png" id="3_iuskh"]
@@ -302,11 +303,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws1g2"]
+size = Vector2(63, 82)
+
 [node name="Beat" type="CharacterBody2D" unique_id=1292217773]
+script = ExtResource("1_f00yb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=53270505]
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_k1ox4")
-animation = &"runSide"
-frame_progress = 0.29969332
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711717535]
+position = Vector2(-3.5, 38)
+shape = SubResource("RectangleShape2D_ws1g2")
