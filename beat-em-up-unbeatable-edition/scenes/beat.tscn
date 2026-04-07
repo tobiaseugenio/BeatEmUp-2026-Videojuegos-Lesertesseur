@@ -268,7 +268,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"runSide",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -314,6 +314,8 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_k1ox4")
 animation = &"idle"
 autoplay = "idle"
+frame = 2
+frame_progress = 0.37366423
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711717535]
 position = Vector2(-3.5, 38)
