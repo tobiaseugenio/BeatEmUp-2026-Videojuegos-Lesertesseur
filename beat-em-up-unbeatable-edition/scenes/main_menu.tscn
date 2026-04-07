@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://mm4xlsydo4nn"]
+
+[ext_resource type="Texture2D" uid="uid://csdg6d1xtynyx" path="res://ui/images/unbeatableLogo.jpg" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://da427sp0ti5se" path="res://ui/fonts/NikkyouSans-B6aV.ttf" id="2_ekxnf"]
+[ext_resource type="FontFile" uid="uid://lcrngnd43iwk" path="res://ui/fonts/NotoSansJP-Black.ttf" id="3_bqqt6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
+texture = ExtResource("1_l6cm7")
+
+[node name="main_menu" type="Control" unique_id=1936948603]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1689367778]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=2042792919]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1811540307]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = 101.5
+offset_right = 203.0
+offset_bottom = 138.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8646751, 0.86467516, 0.8646751, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 35
+text = "(BEAT EM UP EDITION)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1644113698]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.42499
+offset_top = -146.0
+offset_right = 205.42499
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="1player" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1235289752]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_bqqt6")
+text = "1 PLAYER"
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/HBoxContainer" unique_id=1714934332]
+layout_mode = 2
+
+[node name="2player" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=907100510]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_bqqt6")
+text = "2 PLAYERS"
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/HBoxContainer" unique_id=617998785]
+layout_mode = 2
+
+[node name="quit" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1618776452]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_bqqt6")
+text = "QUIT
+"
