@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://mm4xlsydo4nn"]
 
 [ext_resource type="Texture2D" uid="uid://csdg6d1xtynyx" path="res://ui/images/unbeatableLogo.jpg" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://cwplnnxa15al5" path="res://scenes/scripts/main_menu.gd" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://da427sp0ti5se" path="res://ui/fonts/NikkyouSans-B6aV.ttf" id="2_ekxnf"]
 [ext_resource type="FontFile" uid="uid://lcrngnd43iwk" path="res://ui/fonts/NotoSansJP-Black.ttf" id="3_bqqt6"]
 
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wu84c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1689367778]
 
@@ -79,3 +81,5 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_bqqt6")
 text = "QUIT
 "
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
