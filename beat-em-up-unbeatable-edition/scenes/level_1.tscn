@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://na7pfhynm1ga" path="res://scenes/beat.tscn" id="1_014kd"]
 [ext_resource type="Script" uid="uid://dih0jyg8xrpa3" path="res://scenes/scripts/level_1.gd" id="1_bswci"]
+[ext_resource type="PackedScene" uid="uid://c0mr5pi312i40" path="res://scenes/cop.tscn" id="3_rus8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_014kd"]
 size = Vector2(1172, 20)
@@ -11,6 +12,9 @@ script = ExtResource("1_bswci")
 
 [node name="Beat" parent="." unique_id=1292217773 instance=ExtResource("1_014kd")]
 position = Vector2(312, 158)
+
+[node name="cop" parent="." unique_id=1427516271 instance=ExtResource("3_rus8k")]
+position = Vector2(1035, 225)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=482270176]
 position = Vector2(0, 648)

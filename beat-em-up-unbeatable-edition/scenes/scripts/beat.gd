@@ -6,8 +6,8 @@ extends CharacterBody2D
 var direction = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	direction.x = Input.get_action_strength("rightArrowKey") - Input.get_action_strength("leftArrowKey")
-	direction.y = Input.get_action_strength("downArrowKey") - Input.get_action_strength("upArrowKey")
+	direction.x = Input.get_action_strength("dKey") - Input.get_action_strength("aKey")
+	direction.y = Input.get_action_strength("sKey") - Input.get_action_strength("wKey")
 	velocity = direction * SPEED
 		 
 	if direction.x > 0:
@@ -21,5 +21,10 @@ func _physics_process(delta: float) -> void:
 	else: 
 		$AnimatedSprite2D.play("idle")
 		
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("spacebar"):
+		combat()
+		
+func combat():
+	if Input.is_action_pressed(	"spacebar"):
+		$AnimatedSprite2D.play("attack")
+		print("barra espaciadora")
