@@ -15,14 +15,15 @@ func _physics_process(delta: float) -> void:
 	elif direction.x < 0:
 		$AnimatedSprite2D.flip_h = true
 	
-	if direction.length() > 0:
+	if Input.is_action_just_pressed("rightControl"):
+		combat()
+	elif direction.length() > 0:
 		$AnimatedSprite2D.play("run")
 		move_and_slide()
 	else: 
 		$AnimatedSprite2D.play("idle")
 		
-	if Input.is_action_just_pressed("rightControl"):
-		combat()
+	
 		
 func combat():
 	if Input.is_action_pressed(	"spacebar"):
