@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://c6340uunf5m10"]
+
+[ext_resource type="Texture2D" uid="uid://boskhkm3uc82c" path="res://sprites/quaver/attack/cqc-atk-01.png" id="1_21u4y"]
+[ext_resource type="Texture2D" uid="uid://dv67dtntw1wxg" path="res://sprites/quaver/dmg/cqc-dmg-01.png" id="1_pw8um"]
+[ext_resource type="Texture2D" uid="uid://4s5kaxxlnpgg" path="res://sprites/quaver/attack/cqc-atk-02.png" id="2_1ih4c"]
+[ext_resource type="Texture2D" uid="uid://cyixwj40nu1d" path="res://sprites/quaver/dmg/cqc-dmg-02.png" id="2_boadr"]
+[ext_resource type="Texture2D" uid="uid://ylb2ydyqavjp" path="res://sprites/quaver/dmg/cqc-dmg-03.png" id="3_6dvsi"]
+[ext_resource type="Texture2D" uid="uid://s0lss5qienqq" path="res://sprites/quaver/attack/cqc-atk-03.png" id="3_kkkno"]
+[ext_resource type="Texture2D" uid="uid://cy334oy1u7rbs" path="res://sprites/quaver/idle/cqc-idle-01.png" id="4_21u4y"]
+[ext_resource type="Texture2D" uid="uid://6pln6ejg5p2" path="res://sprites/quaver/attack/cqc-atk-04.png" id="4_wnsrv"]
+[ext_resource type="Texture2D" uid="uid://bor11mmxrxveq" path="res://sprites/quaver/idle/cqc-idle-02.png" id="5_1ih4c"]
+[ext_resource type="Texture2D" uid="uid://1wx4y7wgt2e3" path="res://sprites/quaver/attack/cqc-atk-05.png" id="5_q8hf0"]
+[ext_resource type="Texture2D" uid="uid://cn3bljawp2qfr" path="res://sprites/quaver/attack/cqc-atk-06.png" id="6_ipoey"]
+[ext_resource type="Texture2D" uid="uid://1jywrty63r3m" path="res://sprites/quaver/idle/cqc-idle-03.png" id="6_kkkno"]
+[ext_resource type="Texture2D" uid="uid://cwo2mfn344e2c" path="res://sprites/quaver/idle/cqc-idle-04.png" id="7_wnsrv"]
+[ext_resource type="Texture2D" uid="uid://dgwp2ddargijt" path="res://sprites/quaver/run/side/powerwalk-01.png" id="8_q8hf0"]
+[ext_resource type="Texture2D" uid="uid://bbp4ro061rf6t" path="res://sprites/quaver/run/side/powerwalk-02.png" id="9_ipoey"]
+[ext_resource type="Texture2D" uid="uid://unhg8sg0dk4b" path="res://sprites/quaver/run/side/powerwalk-03.png" id="10_le15c"]
+[ext_resource type="Texture2D" uid="uid://ieeef2g5oa8h" path="res://sprites/quaver/run/side/powerwalk-04.png" id="11_3ixyl"]
+[ext_resource type="Texture2D" uid="uid://ds77a57lwb2nk" path="res://sprites/quaver/run/side/powerwalk-05.png" id="12_1yb58"]
+[ext_resource type="Texture2D" uid="uid://jac5lchrxb4p" path="res://sprites/quaver/run/side/powerwalk-06.png" id="13_tmadq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y7t45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_21u4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ih4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kkkno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wnsrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q8hf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ipoey")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pw8um")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_boadr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6dvsi")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_21u4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1ih4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kkkno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wnsrv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_q8hf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ipoey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_le15c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3ixyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1yb58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tmadq")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw8um"]
+size = Vector2(50, 57)
+
+[node name="quaver" type="CharacterBody2D" unique_id=522088745]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=984240392]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_y7t45")
+animation = &"run"
+frame = 4
+frame_progress = 0.9543028
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925622725]
+position = Vector2(0, 39.5)
+shape = SubResource("RectangleShape2D_pw8um")
