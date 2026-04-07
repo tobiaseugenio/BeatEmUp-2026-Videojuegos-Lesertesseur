@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://diglh3qywnp0"]
+
+[ext_resource type="PackedScene" uid="uid://na7pfhynm1ga" path="res://scenes/beat.tscn" id="1_p80yx"]
+[ext_resource type="PackedScene" uid="uid://c6340uunf5m10" path="res://scenes/quaver.tscn" id="2_agd2b"]
+
+[node name="2p_level_1" type="Node2D" unique_id=1035809199]
+
+[node name="Beat" parent="." unique_id=1292217773 instance=ExtResource("1_p80yx")]
+position = Vector2(242, 109)
+
+[node name="quaver" parent="." unique_id=522088745 instance=ExtResource("2_agd2b")]
+position = Vector2(193, 275)

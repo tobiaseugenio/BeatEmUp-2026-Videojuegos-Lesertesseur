@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://boskhkm3uc82c" path="res://sprites/quaver/attack/cqc-atk-01.png" id="1_21u4y"]
 [ext_resource type="Texture2D" uid="uid://dv67dtntw1wxg" path="res://sprites/quaver/dmg/cqc-dmg-01.png" id="1_pw8um"]
+[ext_resource type="Script" uid="uid://dbuk5g6svp1ko" path="res://scenes/scripts/quaver.gd" id="1_q8hf0"]
 [ext_resource type="Texture2D" uid="uid://4s5kaxxlnpgg" path="res://sprites/quaver/attack/cqc-atk-02.png" id="2_1ih4c"]
 [ext_resource type="Texture2D" uid="uid://cyixwj40nu1d" path="res://sprites/quaver/dmg/cqc-dmg-02.png" id="2_boadr"]
 [ext_resource type="Texture2D" uid="uid://ylb2ydyqavjp" path="res://sprites/quaver/dmg/cqc-dmg-03.png" id="3_6dvsi"]
@@ -74,7 +75,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -97,20 +98,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw8um"]
 size = Vector2(50, 57)
 
 [node name="quaver" type="CharacterBody2D" unique_id=522088745]
+script = ExtResource("1_q8hf0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=984240392]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_y7t45")
-animation = &"run"
-frame = 4
-frame_progress = 0.9543028
+animation = &"idle"
+frame_progress = 0.7902794
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925622725]
 position = Vector2(0, 39.5)

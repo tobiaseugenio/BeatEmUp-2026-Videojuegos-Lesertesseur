@@ -83,4 +83,5 @@ text = "QUIT
 "
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/1player" to="." method="_on_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/2player" to="." method="_on_2player_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
