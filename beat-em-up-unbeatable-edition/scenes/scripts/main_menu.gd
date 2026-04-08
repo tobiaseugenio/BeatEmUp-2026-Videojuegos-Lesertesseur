@@ -12,12 +12,27 @@ func _process(delta: float) -> void:
 
 
 func _on_quit_pressed() -> void:
-	get_tree().quit() # Replace with function body.
+	$click.play()
+	get_tree().quit() 
 
 
 func _on_player_pressed() -> void:
+	$click.play()
 	get_tree().change_scene_to_file("res://scenes/level_1.tscn")
 
 
 func _on_2player_pressed() -> void:
+	$click.play()
 	get_tree().change_scene_to_file("res://scenes/2p_level_1.tscn")
+
+
+func _on_player_mouse_entered() -> void:
+	$hover.play()
+
+
+func _on_2player_mouse_entered() -> void:
+	$hover.play()
+
+
+func _on_quit_mouse_entered() -> void:
+	$hover.play()

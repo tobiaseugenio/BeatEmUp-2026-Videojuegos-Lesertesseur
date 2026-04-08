@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhfrkkm3p2odj"
+path="res://.godot/imported/metro [blue line version].mp3-da5b5e151e3ee33cbeb6650cd73001e9.mp3str"
+
+[deps]
+
+source_file="res://ui/audio/metro [blue line version].mp3"
+dest_files=["res://.godot/imported/metro [blue line version].mp3-da5b5e151e3ee33cbeb6650cd73001e9.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

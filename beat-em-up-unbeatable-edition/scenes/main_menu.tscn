@@ -4,9 +4,24 @@
 [ext_resource type="Script" uid="uid://cwplnnxa15al5" path="res://scenes/scripts/main_menu.gd" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://da427sp0ti5se" path="res://ui/fonts/NikkyouSans-B6aV.ttf" id="2_ekxnf"]
 [ext_resource type="FontFile" uid="uid://lcrngnd43iwk" path="res://ui/fonts/NotoSansJP-Black.ttf" id="3_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://cvry674iq2idk" path="res://ui/audio/mainMenuNav.MP3" id="5_8ln24"]
+[ext_resource type="Shader" uid="uid://bv3clgge3mcl1" path="res://ui/shaders/vhsShader.gdshader" id="5_tbmy8"]
+[ext_resource type="AudioStream" uid="uid://c7ppdo5umojst" path="res://ui/audio/mainMenuAccept.mp3" id="6_rtw2f"]
+[ext_resource type="AudioStream" uid="uid://bhfrkkm3p2odj" path="res://ui/audio/metro [blue line version].mp3" id="7_oa1go"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 texture = ExtResource("1_l6cm7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jk1qb"]
+shader = ExtResource("5_tbmy8")
+shader_parameter/color_offset_multiplier = 0.0030000001425
+shader_parameter/black_offset_multiplier = 0.0350000016625
+shader_parameter/color_offset = -0.00199999683512
+shader_parameter/blur_amount = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu84c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ln24"]
 
 [node name="main_menu" type="Control" unique_id=1936948603]
 layout_mode = 3
@@ -34,15 +49,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -203.0
-offset_top = 101.5
+offset_top = 126.5
 offset_right = 203.0
-offset_bottom = 138.5
+offset_bottom = 163.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.8646751, 0.86467516, 0.8646751, 1)
 theme_override_fonts/font = ExtResource("2_ekxnf")
 theme_override_font_sizes/font_size = 35
 text = "(BEAT EM UP EDITION)"
+
+[node name="vhsShader" type="ColorRect" parent="CanvasLayer" unique_id=1708459619]
+material = SubResource("ShaderMaterial_jk1qb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1644113698]
 anchors_preset = 7
@@ -60,28 +83,52 @@ grow_vertical = 0
 [node name="1player" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1235289752]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.95686275, 0.26666668, 0.47843137, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 24
 text = "1 PLAYER"
 
 [node name="VSeparator2" type="VSeparator" parent="CanvasLayer/HBoxContainer" unique_id=1714934332]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wu84c")
 
 [node name="2player" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=907100510]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.95686275, 0.26666668, 0.47843137, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 24
 text = "2 PLAYERS"
 
 [node name="VSeparator" type="VSeparator" parent="CanvasLayer/HBoxContainer" unique_id=617998785]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8ln24")
 
 [node name="quit" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=1618776452]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.95686275, 0.26666668, 0.47843137, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 24
 text = "QUIT
 "
 
+[node name="hover" type="AudioStreamPlayer" parent="." unique_id=1588836472]
+stream = ExtResource("5_8ln24")
+volume_db = -12.514
+
+[node name="click" type="AudioStreamPlayer" parent="." unique_id=819967558]
+stream = ExtResource("6_rtw2f")
+volume_db = -6.386
+
+[node name="metro_blue_line" type="AudioStreamPlayer" parent="." unique_id=1257744012]
+stream = ExtResource("7_oa1go")
+volume_db = -14.596
+autoplay = true
+
+[connection signal="mouse_entered" from="CanvasLayer/HBoxContainer/1player" to="." method="_on_player_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/1player" to="." method="_on_player_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/HBoxContainer/2player" to="." method="_on_2player_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/2player" to="." method="_on_2player_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/HBoxContainer/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
