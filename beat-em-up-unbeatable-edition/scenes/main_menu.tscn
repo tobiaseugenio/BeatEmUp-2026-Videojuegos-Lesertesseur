@@ -15,7 +15,7 @@ texture = ExtResource("1_l6cm7")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jk1qb"]
 shader = ExtResource("5_tbmy8")
 shader_parameter/color_offset_multiplier = 0.0030000001425
-shader_parameter/black_offset_multiplier = 0.0350000016625
+shader_parameter/black_offset_multiplier = 0.034000001615
 shader_parameter/color_offset = -0.00199999683512
 shader_parameter/blur_amount = 0.0
 

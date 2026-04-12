@@ -39,23 +39,25 @@ func input():
 
 	velocity = direction * SPEED
 	
+	if state == State.COMBAT:
+		velocity=Vector2.ZERO
+	
 	if Input.is_action_just_pressed("spacebar"):
 		state = State.COMBAT
-		
+				
 func animation():
 	var animation = stateAnimations.get(state, "idle")
 	if $AnimatedSprite2D.animation != animation:
 		$AnimatedSprite2D.play(animation)
-		var cantSprites = $AnimatedSprite2D.get_sprite_frames()
-		print(cantSprites)
-		
+		$AnimatedSprite2D.sprite_frames.set_animation_loop(animation, state in loopAnimations)
+				
 func flipSprite():
 	if direction.x > 0:
 		$AnimatedSprite2D.flip_h = false
 	elif direction.x < 0:
 		$AnimatedSprite2D.flip_h = true
 		
-#func _on_animated_sprite_2d_animation_finished() -> void:
-	#if state == State.COMBAT:
-		#state = State.IDLE
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if state == State.COMBAT:
+		state = State.IDLE
 		#print("_on_animated_sprite_2d_animation_finished state -> ",  state)

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://na7pfhynm1ga" path="res://scenes/beat.tscn" id="1_014kd"]
 [ext_resource type="Script" uid="uid://dih0jyg8xrpa3" path="res://scenes/scripts/level_1.gd" id="1_bswci"]
 [ext_resource type="PackedScene" uid="uid://c0mr5pi312i40" path="res://scenes/cop.tscn" id="3_rus8k"]
+[ext_resource type="AudioStream" uid="uid://dglredis2k2aw" path="res://ui/audio/copTrauma.MP3" id="4_5xbjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rus8k"]
 size = Vector2(1169, 20)
@@ -35,3 +36,7 @@ shape = SubResource("RectangleShape2D_5xbjy")
 [node name="topBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=1208658256]
 position = Vector2(573.5, 34.5)
 shape = SubResource("RectangleShape2D_4nkto")
+
+[node name="copTrauma" type="AudioStreamPlayer" parent="." unique_id=1315207301]
+stream = ExtResource("4_5xbjy")
+autoplay = true
