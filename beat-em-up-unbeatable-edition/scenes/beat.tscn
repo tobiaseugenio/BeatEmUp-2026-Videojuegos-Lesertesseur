@@ -298,6 +298,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ws1g2"]
 size = Vector2(63, 82)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nqsn"]
+size = Vector2(51, 18)
+
 [node name="Beat" type="CharacterBody2D" unique_id=1292217773]
 script = ExtResource("1_f00yb")
 
@@ -306,12 +309,19 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_k1ox4")
 animation = &"combat"
 autoplay = "idle"
-frame = 4
-frame_progress = 0.20842779
+frame = 6
+frame_progress = 0.5473672
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711717535]
 position = Vector2(-3.5, 38)
 shape = SubResource("RectangleShape2D_ws1g2")
+
+[node name="damageZone" type="Area2D" parent="." unique_id=1201920333]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damageZone" unique_id=857169921]
+position = Vector2(51, -34)
+shape = SubResource("RectangleShape2D_8nqsn")
+debug_color = Color(0.9973492, 0, 0.17767617, 0.41960785)
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -17,13 +17,10 @@ func _on_quit_pressed() -> void:
 
 
 func _on_player_pressed() -> void:
-	$click.play()
-	get_tree().change_scene_to_file("res://scenes/level_1.tscn")
-
+	GameManager.start(1)
 
 func _on_2player_pressed() -> void:
-	$click.play()
-	get_tree().change_scene_to_file("res://scenes/2p_level_1.tscn")
+	GameManager.start(2)
 
 
 func _on_player_mouse_entered() -> void:

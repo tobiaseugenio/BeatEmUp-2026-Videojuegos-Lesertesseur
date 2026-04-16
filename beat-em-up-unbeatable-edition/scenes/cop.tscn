@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c0mr5pi312i40"]
 
+[ext_resource type="Script" uid="uid://3ofhlcmcp4hf" path="res://scenes/scripts/cop.gd" id="1_d8chx"]
 [ext_resource type="Texture2D" uid="uid://bu8y6uwinc5eg" path="res://sprites/cop/idle/cop_idle_front_0000.png" id="1_k64bm"]
 [ext_resource type="Texture2D" uid="uid://bjbd2jdeiwhx" path="res://sprites/cop/attack/atkhiA-01.png" id="1_vw0ho"]
 [ext_resource type="Texture2D" uid="uid://u088ikhvoqjt" path="res://sprites/cop/idle/cop_idle_front_0001.png" id="2_5dg3k"]
@@ -164,6 +165,7 @@ animations = [{
 size = Vector2(52, 108)
 
 [node name="cop" type="CharacterBody2D" unique_id=1427516271]
+script = ExtResource("1_d8chx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=985451888]
 scale = Vector2(0.2, 0.2)

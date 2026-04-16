@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cpxrn7scbj7ab"]
 
-[ext_resource type="PackedScene" uid="uid://na7pfhynm1ga" path="res://scenes/beat.tscn" id="1_014kd"]
 [ext_resource type="Script" uid="uid://dih0jyg8xrpa3" path="res://scenes/scripts/level_1.gd" id="1_bswci"]
 [ext_resource type="PackedScene" uid="uid://c0mr5pi312i40" path="res://scenes/cop.tscn" id="3_rus8k"]
 [ext_resource type="AudioStream" uid="uid://dglredis2k2aw" path="res://ui/audio/copTrauma.MP3" id="4_5xbjy"]
@@ -16,9 +15,6 @@ size = Vector2(1167, 89)
 
 [node name="Level1" type="Node2D" unique_id=1409125102]
 script = ExtResource("1_bswci")
-
-[node name="Beat" parent="." unique_id=1292217773 instance=ExtResource("1_014kd")]
-position = Vector2(312, 158)
 
 [node name="cop" parent="." unique_id=1427516271 instance=ExtResource("3_rus8k")]
 position = Vector2(1035, 225)

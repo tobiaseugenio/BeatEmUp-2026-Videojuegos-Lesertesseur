@@ -98,7 +98,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw8um"]
@@ -111,7 +111,7 @@ script = ExtResource("1_q8hf0")
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_y7t45")
 animation = &"run"
-frame_progress = 0.026493285
+frame_progress = 0.1407175
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925622725]
 position = Vector2(0, 39.5)
