@@ -5,6 +5,9 @@ extends CharacterBody2D
 
 var direction = Vector2.ZERO
 
+func _ready():
+	global_position = Vector2(100, 400)
+
 func _physics_process(delta: float) -> void:
 	direction.x = Input.get_action_strength("rightArrowKey") - Input.get_action_strength("leftArrowKey")
 	direction.y = Input.get_action_strength("downArrowKey") - Input.get_action_strength("upArrowKey")

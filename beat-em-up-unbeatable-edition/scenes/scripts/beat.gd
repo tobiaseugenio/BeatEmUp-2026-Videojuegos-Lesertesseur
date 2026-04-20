@@ -18,6 +18,9 @@ const stateAnimations={
 	State.WAKEUP: "wakeup",
 }
 
+func _ready():
+	global_position = Vector2(100, 200)
+
 func _physics_process(delta: float) -> void:
 	input()
 	movement()
