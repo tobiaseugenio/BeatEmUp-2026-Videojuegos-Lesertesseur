@@ -3,8 +3,10 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var HEALTH = 100
+@export var HIT = 10
 
 var direction = Vector2.ZERO
+signal damageEmitted
 
 enum State {COMBAT, DAMAGE, FALL, IDLE, JUMP, RUN, WAKEUP}
 var state = State.IDLE
@@ -45,10 +47,11 @@ func input():
 	
 	if state == State.COMBAT:
 		velocity=Vector2.ZERO
+		return
 	
 	if Input.is_action_just_pressed("spacebar"):
 		state = State.COMBAT
-		
+		attack()
 				
 func animation():
 	var animation = stateAnimations.get(state, "idle")
@@ -68,8 +71,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		#print("_on_animated_sprite_2d_animation_finished state -> ",  state)
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemigo"):
-		print("ENEMIGO _on_area_2d_body_entered")
-	else:
-		print("ALIDADO _on_area_2d_body_entered")
+func attack():
+	for body in $Area2D.get_overlapping_bodies():
+		if body.is_in_group("enemigo"):
+			print("ENEMIGO attack")
+			body.takeDamage(HIT)
+		else:
+			print("ALIDADO attack")

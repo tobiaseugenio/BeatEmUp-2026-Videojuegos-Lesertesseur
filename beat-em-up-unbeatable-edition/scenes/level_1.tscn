@@ -17,7 +17,7 @@ size = Vector2(1167, 89)
 script = ExtResource("1_bswci")
 
 [node name="cop" parent="." unique_id=1427516271 instance=ExtResource("3_rus8k")]
-position = Vector2(1035, 225)
+position = Vector2(354, 329)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2000912701]
 
