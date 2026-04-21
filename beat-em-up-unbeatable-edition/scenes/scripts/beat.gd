@@ -4,8 +4,9 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -400.0
 @export var HEALTH = 100
 @export var HIT = 10
+@export var direction = Vector2.ZERO
 
-var direction = Vector2.ZERO
+
 signal damageEmitted
 
 enum State {COMBAT, DAMAGE, FALL, IDLE, JUMP, RUN, WAKEUP}

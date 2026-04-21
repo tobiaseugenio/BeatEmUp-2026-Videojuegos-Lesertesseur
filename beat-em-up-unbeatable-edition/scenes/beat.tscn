@@ -305,7 +305,7 @@ size = Vector2(51, 18)
 radius = 53.0
 height = 188.0
 
-[node name="Beat" type="CharacterBody2D" unique_id=1292217773]
+[node name="Beat" type="CharacterBody2D" unique_id=1292217773 groups=["jugadorBeat"]]
 script = ExtResource("1_f00yb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=53270505]
