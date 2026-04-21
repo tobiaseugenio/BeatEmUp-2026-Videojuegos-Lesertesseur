@@ -164,7 +164,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7rh3"]
 size = Vector2(52, 108)
 
-[node name="cop" type="CharacterBody2D" unique_id=1427516271]
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8chx"]
+radius = 95.80188
+
+[node name="cop" type="CharacterBody2D" unique_id=1427516271 groups=["enemigo"]]
 script = ExtResource("1_d8chx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=985451888]
@@ -176,3 +179,12 @@ frame_progress = 0.94995
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=215781635]
 position = Vector2(-4, 45)
 shape = SubResource("RectangleShape2D_l7rh3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=102394303]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1031106043]
+shape = SubResource("CircleShape2D_d8chx")
+debug_color = Color(0.21339208, 0.6230139, 0.424614, 0.41960785)
+
+[connection signal="child_entered_tree" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_child_entered_tree"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

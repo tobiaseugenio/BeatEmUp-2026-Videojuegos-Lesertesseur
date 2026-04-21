@@ -48,6 +48,7 @@ func input():
 	
 	if Input.is_action_just_pressed("spacebar"):
 		state = State.COMBAT
+		
 				
 func animation():
 	var animation = stateAnimations.get(state, "idle")
@@ -65,3 +66,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if state == State.COMBAT:
 		state = State.IDLE
 		#print("_on_animated_sprite_2d_animation_finished state -> ",  state)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemigo"):
+		print("ENEMIGO _on_area_2d_body_entered")
+	else:
+		print("ALIDADO _on_area_2d_body_entered")

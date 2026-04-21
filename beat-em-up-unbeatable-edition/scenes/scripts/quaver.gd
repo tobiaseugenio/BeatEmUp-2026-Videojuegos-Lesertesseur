@@ -29,6 +29,6 @@ func _physics_process(delta: float) -> void:
 	
 		
 func combat():
-	if Input.is_action_pressed(	"spacebar"):
+	if Input.is_action_pressed("rightControl"):
 		$AnimatedSprite2D.play("attack")
 		print("barra espaciadora")

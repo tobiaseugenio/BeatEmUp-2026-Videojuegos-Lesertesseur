@@ -23,6 +23,10 @@ GameManager="*uid://bqtasge55cc44"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+enemigo=""
+
 [input]
 
 rightArrowKey={
