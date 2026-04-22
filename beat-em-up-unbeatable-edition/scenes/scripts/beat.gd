@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var HIT = 10
 @export var direction = Vector2.ZERO
 
-
+signal died
 signal damageEmitted
 
 enum State {COMBAT, DAMAGE, FALL, IDLE, JUMP, RUN, WAKEUP}
@@ -79,3 +79,12 @@ func attack():
 			body.takeDamage(HIT)
 		else:
 			print("ALIDADO attack")
+			
+func takeDamage(damage):
+	print("takeDamage BEAT BEFORE -> ", HEALTH)
+	HEALTH -= damage 
+	state = State.DAMAGE
+	print("takeDamage BEAT AFTER -> ", HEALTH)
+	if HEALTH <= 0:			
+		died.emit()
+		queue_free()
