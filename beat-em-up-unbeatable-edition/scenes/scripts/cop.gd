@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var HEALTH = 30
-const SPEED = 200.0
+const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 signal died
@@ -36,6 +36,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func chase():
 	if state == State.DAMAGE:
 		velocity = Vector2.ZERO
+		move_and_slide()
 		return
 		
 	direction = (jugador.global_position - global_position).normalized()
@@ -69,9 +70,9 @@ func animation():
 		$AnimatedSprite2D.sprite_frames.set_animation_loop(animation, state in loopAnimations)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if state == State.COMBAT:
-		state = State.IDLE
 	if state == State.DAMAGE:
+		state = State.RUN
+	if state == State.COMBAT:
 		state = State.IDLE
 		
 func flipSprite():
