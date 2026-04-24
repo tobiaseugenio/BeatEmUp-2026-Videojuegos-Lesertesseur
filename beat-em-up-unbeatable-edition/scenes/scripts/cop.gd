@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var HEALTH = 30
+@export var HIT = 5
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 var jugador
@@ -46,10 +47,18 @@ func chase():
 	move_and_slide()
 	#print("chase()")
 
+func attack():
+	for body in $Area2D.get_overlapping_bodies():
+		if body.is_in_group("jugadorBeat"):
+			print("cop -> attack()")
+			body.takeDamage(HIT)
+
+
 func takeDamage(damage):
 	HEALTH -= damage 
 	state = State.DAMAGE
 	if HEALTH <= 0:
+		print("takeDamage -> HEALTH <= 0")
 		died.emit()
 		queue_free()
 

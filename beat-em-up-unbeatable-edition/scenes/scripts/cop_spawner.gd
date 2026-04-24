@@ -12,12 +12,12 @@ func _process(delta: float) -> void:
 	
 func spawnCop():
 	if copScene:
-		#global_position = Vector2(200, 200)
 		var newCop = copScene.instantiate()
 		newCop.died.connect(diedSpawner)
 		add_child(newCop)
 		newCop.global_position = global_position
+		print("copSpawner.gd -> spawnCop()")
 
 func diedSpawner():
-	spawnCop()
 	print(" cop_spawner.gd -> diedSpawner()")
+	spawnCop()

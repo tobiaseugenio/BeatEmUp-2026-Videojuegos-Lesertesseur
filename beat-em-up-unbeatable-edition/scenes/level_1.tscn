@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpxrn7scbj7ab"]
 
 [ext_resource type="Script" uid="uid://dih0jyg8xrpa3" path="res://scenes/scripts/level_1.gd" id="1_bswci"]
-[ext_resource type="PackedScene" uid="uid://c0mr5pi312i40" path="res://scenes/cop.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://dv4sl0xlhocdg" path="res://scenes/cop_spawner.tscn" id="3_rus8k"]
 [ext_resource type="AudioStream" uid="uid://dglredis2k2aw" path="res://ui/audio/copTrauma.MP3" id="4_5xbjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rus8k"]
@@ -15,9 +15,6 @@ size = Vector2(1167, 89)
 
 [node name="Level1" type="Node2D" unique_id=1409125102]
 script = ExtResource("1_bswci")
-
-[node name="cop" parent="." unique_id=1427516271 instance=ExtResource("3_rus8k")]
-position = Vector2(354, 329)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2000912701]
 
@@ -36,3 +33,6 @@ shape = SubResource("RectangleShape2D_4nkto")
 [node name="copTrauma" type="AudioStreamPlayer" parent="." unique_id=1315207301]
 stream = ExtResource("4_5xbjy")
 autoplay = true
+
+[node name="CopSpawner" parent="." unique_id=392330321 instance=ExtResource("3_rus8k")]
+position = Vector2(1075, 328)
