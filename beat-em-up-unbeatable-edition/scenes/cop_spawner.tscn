@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dv4sl0xlhocdg"]
+
+[ext_resource type="Script" uid="uid://mj8o0lgj5165" path="res://scenes/scripts/cop_spawner.gd" id="1_1wrgt"]
+[ext_resource type="PackedScene" uid="uid://c0mr5pi312i40" path="res://scenes/cop.tscn" id="2_n1eor"]
+
+[node name="CopSpawner" type="Node2D" unique_id=392330321]
+script = ExtResource("1_1wrgt")
+copScene = ExtResource("2_n1eor")

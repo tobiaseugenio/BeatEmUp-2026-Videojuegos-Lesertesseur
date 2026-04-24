@@ -3,9 +3,10 @@ extends CharacterBody2D
 @export var HEALTH = 30
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
+var jugador
 
 signal died
-var jugador
+
 enum State {COMBAT, DAMAGE, IDLE, RUN}
 var state = State.IDLE
 var loopAnimations = [State.IDLE, State.RUN]
@@ -20,6 +21,7 @@ const stateAnimations={
 
 func _ready() -> void:
 	call_deferred("find_player")
+	
 
 func find_player():
 	jugador = get_tree().get_first_node_in_group("jugadorBeat")
@@ -45,11 +47,9 @@ func chase():
 	#print("chase()")
 
 func takeDamage(damage):
-	print("takeDamage COP BEFORE -> ", HEALTH)
 	HEALTH -= damage 
 	state = State.DAMAGE
-	print("takeDamage COP AFTER -> ", HEALTH)
-	if HEALTH <= 0:			
+	if HEALTH <= 0:
 		died.emit()
 		queue_free()
 
@@ -80,3 +80,7 @@ func flipSprite():
 		$AnimatedSprite2D.flip_h = false
 	elif direction.x < 0:
 		$AnimatedSprite2D.flip_h = true
+
+func _on_died() -> void:
+	#died.emit()
+	print("cop.gd -> _on_died()")

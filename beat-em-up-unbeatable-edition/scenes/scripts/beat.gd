@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var HEALTH = 100
-@export var HIT = 10
+@export var HIT = 110
 @export var direction = Vector2.ZERO
 
 signal died
@@ -75,16 +75,16 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func attack():
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group("enemigo"):
-			print("ENEMIGO attack")
+			#print("ENEMIGO attack")
 			body.takeDamage(HIT)
-		else:
-			print("ALIDADO attack")
+		#else:
+			#print("ALIDADO attack")
 			
 func takeDamage(damage):
-	print("takeDamage BEAT BEFORE -> ", HEALTH)
+	#print("takeDamage BEAT BEFORE -> ", HEALTH)
 	HEALTH -= damage 
 	state = State.DAMAGE
-	print("takeDamage BEAT AFTER -> ", HEALTH)
+	#print("takeDamage BEAT AFTER -> ", HEALTH)
 	if HEALTH <= 0:			
 		died.emit()
 		queue_free()
