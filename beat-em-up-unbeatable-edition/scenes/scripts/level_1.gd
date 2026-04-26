@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var objective = 5 
+var copsKilled = 0
 var jugador
 
 # Called when the node enters the scene tree for the first time.
@@ -8,6 +10,9 @@ func _ready() -> void:
 	jugador = get_tree().get_first_node_in_group("jugadorBeat")
 	add_child(beat)
 	
+	var spawner = $CopSpawner
+	spawner.copDied.connect(copKilled)
+	
 	if GameManager.playerCount == 2:
 		var quaver = GameManager.quaverScene.instantiate()
 		add_child(quaver)
@@ -15,3 +20,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func copKilled():
+	copsKilled += 1
+	print("copsKilled -> ", copsKilled)
+	if copsKilled >= objective:
+		print("objetivo completado")

@@ -174,8 +174,8 @@ animations = [{
 size = Vector2(52, 108)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d8chx"]
-radius = 224.0
-height = 456.0
+radius = 66.0
+height = 216.0
 
 [node name="cop" type="CharacterBody2D" unique_id=1427516271 groups=["enemigo"]]
 script = ExtResource("1_d8chx")

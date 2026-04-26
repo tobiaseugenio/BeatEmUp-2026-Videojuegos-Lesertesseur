@@ -62,10 +62,10 @@ func attack():
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group("jugadorBeat"):
 			state = State.COMBAT
-			print("cop.gd -> attack()")
+			#print("cop.gd -> attack()")
 			
 func takeDamage(damage):
-	print("cop.gd takeDamage() -> ", state)
+	#print("cop.gd takeDamage() -> ", state)
 	HEALTH -= damage 
 	if state != State.COMBAT:
 		state = State.DAMAGE
@@ -108,5 +108,6 @@ func flipSprite():
 		$AnimatedSprite2D.flip_h = true
 
 func _on_died() -> void:
+	pass
 	#died.emit()
-	print("cop.gd -> _on_died()")
+	#print("cop.gd -> _on_died()")

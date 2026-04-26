@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var copScene: PackedScene
+signal copDied
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +15,7 @@ func spawnCop():
 	if copScene:
 		var newCop = copScene.instantiate()
 		newCop.died.connect(diedSpawner)
+		copDied.emit()
 		add_child(newCop)
 		#print("copSpawner.gd -> spawnCop()")
 
