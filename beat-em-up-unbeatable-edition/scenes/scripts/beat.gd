@@ -47,9 +47,10 @@ func input():
 
 	velocity = direction * SPEED
 	
-	if state == State.COMBAT:
+	if state == State.COMBAT or state == State.DAMAGE:
 		velocity=Vector2.ZERO
 		return
+	
 	
 	if Input.is_action_just_pressed("spacebar"):
 		state = State.COMBAT
