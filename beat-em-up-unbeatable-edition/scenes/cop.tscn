@@ -49,7 +49,7 @@ animations = [{
 "texture": ExtResource("3_6r16h")
 }],
 "loop": false,
-"name": &"attack",
+"name": &"combat",
 "speed": 5.0
 }, {
 "frames": [{
@@ -183,7 +183,7 @@ script = ExtResource("1_d8chx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=985451888]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_kxsfj")
-animation = &"damage"
+animation = &"combat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=215781635]
 position = Vector2(-4, 45)

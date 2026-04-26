@@ -34,7 +34,8 @@ func _physics_process(delta: float) -> void:
 func movement():
 	if state == State.COMBAT:
 		return
-	
+	if state == State.DAMAGE:
+		return
 	if velocity.length() == 0:
 		state = State.IDLE
 	else:
@@ -69,20 +70,21 @@ func flipSprite():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if state == State.COMBAT:
 		state = State.IDLE
-		#print("_on_animated_sprite_2d_animation_finished state -> ",  state)
-
-
+	elif state == State.DAMAGE:
+		state = State.IDLE
+		
 func attack():
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group("enemigo"):
-			print("ENEMIGO attack")
+			#print("ENEMIGO attack")
 			body.takeDamage(HIT)
 		#else:
 			#print("ALIDADO attack")
 			
 func takeDamage(damage):
 	HEALTH -= damage 
+	print("beat.gd HEALTH ->", HEALTH)
 	state = State.DAMAGE
 	if HEALTH <= 0:			
-		#died.emit()
+		died.emit()
 		queue_free()

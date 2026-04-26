@@ -5,11 +5,13 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 var jugador
+var attackCooldown = false 
+@export var timeCooldown = 2 
 
 signal died
 
 enum State {COMBAT, DAMAGE, IDLE, RUN}
-var state = State.IDLE
+var state = State.RUN
 var loopAnimations = [State.IDLE, State.RUN]
 var direction = Vector2.ZERO
 
@@ -30,6 +32,7 @@ func find_player():
 func _physics_process(delta: float) -> void:
 	movement()
 	chase()
+	combatRange()
 	animation()
 	flipSprite()
 
@@ -37,7 +40,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 func chase():
-	if state == State.DAMAGE:
+	if state == State.DAMAGE or state == State.COMBAT or ! is_instance_valid(jugador) :
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -45,20 +48,29 @@ func chase():
 	direction = (jugador.global_position - global_position).normalized()
 	velocity = direction * SPEED
 	move_and_slide()
-	#print("chase()")
+
+func combatRange():
+	if state == State.DAMAGE or state == State.COMBAT or attackCooldown:
+		return	
+	for body in $Area2D.get_overlapping_bodies():
+		if body.is_in_group("jugadorBeat"):
+			state = State.COMBAT
+			attackCooldown = true
+			return
 
 func attack():
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group("jugadorBeat"):
-			print("cop -> attack()")
-			body.takeDamage(HIT)
-
-
+			state = State.COMBAT
+			print("cop.gd -> attack()")
+			
 func takeDamage(damage):
+	print("cop.gd takeDamage() -> ", state)
 	HEALTH -= damage 
-	state = State.DAMAGE
+	if state != State.COMBAT:
+		state = State.DAMAGE
 	if HEALTH <= 0:
-		print("takeDamage -> HEALTH <= 0")
+		#print("takeDamage -> HEALTH <= 0")
 		died.emit()
 		queue_free()
 
@@ -79,10 +91,15 @@ func animation():
 		$AnimatedSprite2D.sprite_frames.set_animation_loop(animation, state in loopAnimations)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if state == State.DAMAGE:
-		state = State.RUN
 	if state == State.COMBAT:
-		state = State.IDLE
+		for body in $Area2D.get_overlapping_bodies():
+			if body.is_in_group("jugadorBeat"):
+				body.takeDamage(HIT)
+		state = State.RUN
+		await get_tree().create_timer(timeCooldown).timeout
+		attackCooldown = false
+	elif state == State.DAMAGE:
+		state = State.RUN
 		
 func flipSprite():
 	if direction.x > 0:

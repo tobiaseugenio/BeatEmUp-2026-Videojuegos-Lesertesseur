@@ -99,8 +99,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("12_y28bm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cdyoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5c3hi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y28bm")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
 "speed": 5.0
 }, {
@@ -308,7 +317,7 @@ script = ExtResource("1_f00yb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=53270505]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_k1ox4")
-animation = &"combat"
+animation = &"damage"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711717535]

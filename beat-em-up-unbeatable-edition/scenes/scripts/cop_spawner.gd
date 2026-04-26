@@ -15,9 +15,8 @@ func spawnCop():
 		var newCop = copScene.instantiate()
 		newCop.died.connect(diedSpawner)
 		add_child(newCop)
-		newCop.global_position = global_position
-		print("copSpawner.gd -> spawnCop()")
+		#print("copSpawner.gd -> spawnCop()")
 
 func diedSpawner():
-	print(" cop_spawner.gd -> diedSpawner()")
+	#print(" cop_spawner.gd -> diedSpawner()")
 	spawnCop()
