@@ -65,6 +65,7 @@ func attack():
 			#print("cop.gd -> attack()")
 			
 func takeDamage(damage):
+	$damageSFX.play()
 	#print("cop.gd takeDamage() -> ", state)
 	HEALTH -= damage 
 	if state != State.COMBAT:

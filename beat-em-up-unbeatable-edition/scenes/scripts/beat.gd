@@ -83,6 +83,7 @@ func attack():
 			#print("ALIDADO attack")
 			
 func takeDamage(damage):
+	$damageSFX.play()
 	HEALTH -= damage 
 	print("beat.gd HEALTH ->", HEALTH)
 	state = State.DAMAGE

@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://drn8s7vtmbblm" path="res://sprites/beat/wakeUp/U_B_E_KO_wakeup_07.png" id="60_6ylof"]
 [ext_resource type="Texture2D" uid="uid://07opc8ik60nw" path="res://sprites/beat/wakeUp/U_B_E_KO_wakeup_08.png" id="61_ue1f3"]
 [ext_resource type="Texture2D" uid="uid://coj7ngselnn8t" path="res://sprites/beat/wakeUp/U_B_E_KO_wakeup_09.png" id="62_iew8o"]
+[ext_resource type="AudioStream" uid="uid://cpwlb7itilj3p" path="res://ui/audio/arcadeStart.mp3" id="62_ws1g2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k1ox4"]
 animations = [{
@@ -329,6 +330,10 @@ shape = SubResource("RectangleShape2D_ws1g2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1029933704]
 shape = SubResource("CapsuleShape2D_8nqsn")
 debug_color = Color(1.2032688e-06, 0.63630486, 0.41046962, 0.41960785)
+
+[node name="damageSFX" type="AudioStreamPlayer" parent="." unique_id=1456171978]
+stream = ExtResource("62_ws1g2")
+volume_db = 9.209
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
