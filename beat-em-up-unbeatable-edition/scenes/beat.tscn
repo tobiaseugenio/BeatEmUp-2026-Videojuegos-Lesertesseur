@@ -62,6 +62,8 @@
 [ext_resource type="Texture2D" uid="uid://07opc8ik60nw" path="res://sprites/beat/wakeUp/U_B_E_KO_wakeup_08.png" id="61_ue1f3"]
 [ext_resource type="Texture2D" uid="uid://coj7ngselnn8t" path="res://sprites/beat/wakeUp/U_B_E_KO_wakeup_09.png" id="62_iew8o"]
 [ext_resource type="AudioStream" uid="uid://cpwlb7itilj3p" path="res://ui/audio/arcadeStart.mp3" id="62_ws1g2"]
+[ext_resource type="Script" uid="uid://nmxodcwbcx0d" path="res://scenes/scripts/canvas_layer.gd" id="63_f00yb"]
+[ext_resource type="FontFile" uid="uid://da427sp0ti5se" path="res://ui/fonts/NikkyouSans-B6aV.ttf" id="64_iuskh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k1ox4"]
 animations = [{
@@ -312,6 +314,8 @@ size = Vector2(63, 82)
 radius = 82.0
 height = 226.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iuskh"]
+
 [node name="Beat" type="CharacterBody2D" unique_id=1292217773 groups=["jugadorBeat"]]
 script = ExtResource("1_f00yb")
 
@@ -334,6 +338,21 @@ debug_color = Color(1.2032688e-06, 0.63630486, 0.41046962, 0.41960785)
 [node name="damageSFX" type="AudioStreamPlayer" parent="." unique_id=1456171978]
 stream = ExtResource("62_ws1g2")
 volume_db = 9.209
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=520623046]
+script = ExtResource("63_f00yb")
+
+[node name="healthBar" type="ProgressBar" parent="CanvasLayer" unique_id=541257239]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.0
+offset_right = 2.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("64_iuskh")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxEmpty_iuskh")
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
