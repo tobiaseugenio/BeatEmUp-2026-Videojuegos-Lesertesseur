@@ -85,7 +85,7 @@ func attack():
 func takeDamage(damage):
 	$damageSFX.play()
 	HEALTH -= damage 
-	print("beat.gd HEALTH ->", HEALTH)
+	#print("beat.gd HEALTH ->", HEALTH)
 	state = State.DAMAGE
 	if HEALTH <= 0:			
 		died.emit()

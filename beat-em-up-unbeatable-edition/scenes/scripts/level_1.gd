@@ -12,7 +12,7 @@ var camera : Camera2D
 
 var beat
 var jugador
-
+@onready var spawner = $CopSpawner
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	beat = GameManager.beatScene.instantiate()
@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	camera = beat.get_node("Camera2D")
 	
-	var spawner = $CopSpawner
+	
 	spawner.copDied.connect(copKilled)
 	
 	if GameManager.playerCount == 2:
@@ -73,6 +73,7 @@ func configurarZona(zoneX: int):
 	$StaticBody2D/leftBorder.global_position.x = zoneX - halfScreen
 	$StaticBody2D/rightBorder.global_position.x = zoneX + halfScreen
 	beat.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, beat.global_position.y)
+	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y)
 	
 func liberarCamara():
 	cameraLocked = false
