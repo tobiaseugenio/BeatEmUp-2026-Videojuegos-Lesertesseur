@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dih0jyg8xrpa3" path="res://scenes/scripts/level_1.gd" id="1_bswci"]
 [ext_resource type="PackedScene" uid="uid://dv4sl0xlhocdg" path="res://scenes/cop_spawner.tscn" id="3_rus8k"]
+[ext_resource type="Texture2D" uid="uid://b6qhjvnbtqlcr" path="res://icon.svg" id="4_4nkto"]
 [ext_resource type="AudioStream" uid="uid://dglredis2k2aw" path="res://ui/audio/copTrauma.MP3" id="4_5xbjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rus8k"]
@@ -35,4 +36,8 @@ stream = ExtResource("4_5xbjy")
 autoplay = true
 
 [node name="CopSpawner" parent="." unique_id=392330321 instance=ExtResource("3_rus8k")]
-position = Vector2(575, 343)
+position = Vector2(959, 343)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1597278126]
+position = Vector2(654, 314)
+texture = ExtResource("4_4nkto")
