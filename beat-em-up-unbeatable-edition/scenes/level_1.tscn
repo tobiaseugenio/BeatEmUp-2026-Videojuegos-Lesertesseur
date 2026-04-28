@@ -6,13 +6,16 @@
 [ext_resource type="AudioStream" uid="uid://dglredis2k2aw" path="res://ui/audio/copTrauma.MP3" id="4_5xbjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rus8k"]
-size = Vector2(1169, 20)
+size = Vector2(3822, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xbjy"]
 size = Vector2(20, 666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nkto"]
-size = Vector2(1167, 89)
+size = Vector2(3831, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcfvj"]
+size = Vector2(28, 662)
 
 [node name="Level1" type="Node2D" unique_id=1409125102]
 script = ExtResource("1_bswci")
@@ -20,7 +23,7 @@ script = ExtResource("1_bswci")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2000912701]
 
 [node name="downBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=1681726128]
-position = Vector2(574.5, 648)
+position = Vector2(1901, 648)
 shape = SubResource("RectangleShape2D_rus8k")
 
 [node name="leftBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=1721172950]
@@ -28,8 +31,12 @@ position = Vector2(0, 323)
 shape = SubResource("RectangleShape2D_5xbjy")
 
 [node name="topBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=1208658256]
-position = Vector2(573.5, 34.5)
+position = Vector2(1905.5, 34.5)
 shape = SubResource("RectangleShape2D_4nkto")
+
+[node name="rightBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=1856317016]
+position = Vector2(1155, 321)
+shape = SubResource("RectangleShape2D_fcfvj")
 
 [node name="copTrauma" type="AudioStreamPlayer" parent="." unique_id=1315207301]
 stream = ExtResource("4_5xbjy")
@@ -39,5 +46,17 @@ autoplay = true
 position = Vector2(959, 343)
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1597278126]
-position = Vector2(654, 314)
+position = Vector2(1, 339)
+texture = ExtResource("4_4nkto")
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=1194462940]
+position = Vector2(1157, 316)
+texture = ExtResource("4_4nkto")
+
+[node name="Icon3" type="Sprite2D" parent="." unique_id=1851032726]
+position = Vector2(2190, 297)
+texture = ExtResource("4_4nkto")
+
+[node name="Icon4" type="Sprite2D" parent="." unique_id=1356013582]
+position = Vector2(3367, 337)
 texture = ExtResource("4_4nkto")

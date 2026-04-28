@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var objective = 2 
-@export var zones: Array[int] = [578, 1024, 2048]
+@export var zones: Array[int] = [578, 1024]
 
 var copsKilled = 0
 var currentZone = 0
@@ -60,11 +60,20 @@ func zoneCompleted():
 	currentZone = nextZone
 	copsKilled = 0
 	transition = false
+	$StaticBody2D/leftBorder.global_position.x = beat.global_position.x - 20
 
+	liberarCamara()
+	configurarZona(zones[currentZone])
 
-func _configurarZona(zoneX: int):
+func configurarZona(zoneX: int):
 	cameraLocked = true
 	var halfScreen = get_viewport().get_visible_rect().size.x / 2.0
-	camera.limit_left  = int(zoneX - halfScreen)
-	camera.limit_right = int(zoneX + halfScreen)
+	camera.limit_left  = zoneX - halfScreen
+	camera.limit_right = zoneX + halfScreen
 	$StaticBody2D/leftBorder.global_position.x = zoneX - halfScreen
+	$StaticBody2D/rightBorder.global_position.x = zoneX + halfScreen
+
+func liberarCamara():
+	cameraLocked = false
+	camera.limit_left  = -10000000
+	camera.limit_right =  10000000
