@@ -14,8 +14,12 @@ var beat
 var quaver
 var jugador
 @onready var spawner = $CopSpawner
+@onready var spawner2 = $CopSpawner2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 500, spawner.global_position.y - 70)
+
+	
 	beat = GameManager.beatScene.instantiate()
 	#jugador = get_tree().get_first_node_in_group("jugadorBeat")
 	add_child(beat)
@@ -24,6 +28,7 @@ func _ready() -> void:
 	
 	
 	spawner.copDied.connect(copKilled)
+	spawner2.copDied.connect(copKilled)
 	
 	if GameManager.playerCount == 2:
 		quaver = GameManager.quaverScene.instantiate()
@@ -45,9 +50,26 @@ func copKilled():
 		print("objetivo completado")
 		zoneCompleted()
 
+func spawnZoneOneEnemies():
+	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y)
+
+func spawnZoneTwoEnemies():
+	spawner2.show()
+	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 500, spawner.global_position.y + 70)
+	objective = 3
+
+func spawnZoneThreeEnemies():
+	pass
+
 func changeZone(zonesIndex):
 	currentZone = zonesIndex
-	
+	if zonesIndex == 0:
+		spawnZoneOneEnemies()
+		print("changeZone(zonesIndex) -> spawnZoneOneEnemies()")
+	elif zonesIndex == 1:
+		spawnZoneTwoEnemies()
+		print("changeZone(zonesIndex) -> spawnZoneTwoEnemies()")
+		
 func zoneCompleted():
 	if transition:
 		return
@@ -74,10 +96,10 @@ func configurarZona(zoneX: int):
 	$StaticBody2D/leftBorder.global_position.x = zoneX - halfScreen
 	$StaticBody2D/rightBorder.global_position.x = zoneX + halfScreen
 	beat.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, beat.global_position.y)
-	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y)
 	if GameManager.playerCount == 2:
 		quaver.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, quaver.global_position.y)
-		
+	changeZone(currentZone)
+	
 func liberarCamara():
 	cameraLocked = false
 	camera.limit_left  = -10000000
