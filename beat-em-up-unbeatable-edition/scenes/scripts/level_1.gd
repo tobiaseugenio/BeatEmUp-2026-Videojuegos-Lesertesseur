@@ -75,7 +75,8 @@ func configurarZona(zoneX: int):
 	$StaticBody2D/rightBorder.global_position.x = zoneX + halfScreen
 	beat.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, beat.global_position.y)
 	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y)
-	quaver.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, quaver.global_position.y)
+	if GameManager.playerCount == 2:
+		quaver.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, quaver.global_position.y)
 		
 func liberarCamara():
 	cameraLocked = false
