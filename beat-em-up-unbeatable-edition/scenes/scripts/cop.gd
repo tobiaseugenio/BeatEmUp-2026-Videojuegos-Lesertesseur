@@ -6,7 +6,7 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 var jugador
 var attackCooldown = false 
-@export var timeCooldown = 2 
+@export var timeCooldown = 2
 
 signal died
 
@@ -66,12 +66,11 @@ func attack():
 			
 func takeDamage(damage):
 	$damageSFX.play()
-	#print("cop.gd takeDamage() -> ", state)
 	HEALTH -= damage 
+	state = State.DAMAGE
 	if state != State.COMBAT:
 		state = State.DAMAGE
 	if HEALTH <= 0:
-		#print("takeDamage -> HEALTH <= 0")
 		died.emit()
 		queue_free()
 
@@ -96,10 +95,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		for body in $Area2D.get_overlapping_bodies():
 			if body.is_in_group("jugadorBeat"):
 				body.takeDamage(HIT)
-		state = State.RUN
+		state = State.IDLE 
 		await get_tree().create_timer(timeCooldown).timeout
 		attackCooldown = false
+		state = State.RUN
 	elif state == State.DAMAGE:
+		attackCooldown = false
 		state = State.RUN
 		
 func flipSprite():

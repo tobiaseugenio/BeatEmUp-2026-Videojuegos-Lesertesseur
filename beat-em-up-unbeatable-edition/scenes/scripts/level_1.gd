@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var objective = 2 
-@export var zones: Array[int] = [578, 1024, 1600]
+@export var zones: Array[int] = [578, 1024, 1900]
 
 var copsKilled = 0
 var currentZone = 0

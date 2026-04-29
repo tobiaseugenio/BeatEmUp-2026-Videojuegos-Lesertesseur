@@ -43,7 +43,7 @@ stream = ExtResource("4_5xbjy")
 autoplay = true
 
 [node name="CopSpawner" parent="." unique_id=392330321 instance=ExtResource("3_rus8k")]
-position = Vector2(959, 343)
+position = Vector2(1052, 364)
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1597278126]
 position = Vector2(1, 339)

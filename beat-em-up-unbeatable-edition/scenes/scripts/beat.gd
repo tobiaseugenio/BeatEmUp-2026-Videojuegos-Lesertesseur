@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var HEALTH = 100
-@export var HIT = 100
+@export var HIT = 10
 @export var direction = Vector2.ZERO
 
 signal died
@@ -55,7 +55,7 @@ func input():
 	if Input.is_action_just_pressed("spacebar"):
 		state = State.COMBAT
 		attack()
-				
+		
 func animation():
 	var animation = stateAnimations.get(state, "idle")
 	if $AnimatedSprite2D.animation != animation:
