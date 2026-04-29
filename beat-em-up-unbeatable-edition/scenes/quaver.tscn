@@ -8,10 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ylb2ydyqavjp" path="res://sprites/quaver/dmg/cqc-dmg-03.png" id="3_6dvsi"]
 [ext_resource type="Texture2D" uid="uid://s0lss5qienqq" path="res://sprites/quaver/attack/cqc-atk-03.png" id="3_kkkno"]
 [ext_resource type="Texture2D" uid="uid://cy334oy1u7rbs" path="res://sprites/quaver/idle/cqc-idle-01.png" id="4_21u4y"]
-[ext_resource type="Texture2D" uid="uid://6pln6ejg5p2" path="res://sprites/quaver/attack/cqc-atk-04.png" id="4_wnsrv"]
 [ext_resource type="Texture2D" uid="uid://bor11mmxrxveq" path="res://sprites/quaver/idle/cqc-idle-02.png" id="5_1ih4c"]
-[ext_resource type="Texture2D" uid="uid://1wx4y7wgt2e3" path="res://sprites/quaver/attack/cqc-atk-05.png" id="5_q8hf0"]
-[ext_resource type="Texture2D" uid="uid://cn3bljawp2qfr" path="res://sprites/quaver/attack/cqc-atk-06.png" id="6_ipoey"]
 [ext_resource type="Texture2D" uid="uid://1jywrty63r3m" path="res://sprites/quaver/idle/cqc-idle-03.png" id="6_kkkno"]
 [ext_resource type="Texture2D" uid="uid://cwo2mfn344e2c" path="res://sprites/quaver/idle/cqc-idle-04.png" id="7_wnsrv"]
 [ext_resource type="Texture2D" uid="uid://dgwp2ddargijt" path="res://sprites/quaver/run/side/powerwalk-01.png" id="8_q8hf0"]
@@ -20,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ieeef2g5oa8h" path="res://sprites/quaver/run/side/powerwalk-04.png" id="11_3ixyl"]
 [ext_resource type="Texture2D" uid="uid://ds77a57lwb2nk" path="res://sprites/quaver/run/side/powerwalk-05.png" id="12_1yb58"]
 [ext_resource type="Texture2D" uid="uid://jac5lchrxb4p" path="res://sprites/quaver/run/side/powerwalk-06.png" id="13_tmadq"]
+[ext_resource type="AudioStream" uid="uid://dds3ki8qmq0xr" path="res://ui/audio/punch.MP3" id="21_ipoey"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y7t45"]
 animations = [{
@@ -32,18 +30,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_kkkno")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_wnsrv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_q8hf0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ipoey")
 }],
-"loop": true,
-"name": &"attack",
+"loop": false,
+"name": &"combat",
 "speed": 5.0
 }, {
 "frames": [{
@@ -56,7 +45,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_6dvsi")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
 "speed": 5.0
 }, {
@@ -97,22 +86,40 @@ animations = [{
 "texture": ExtResource("13_tmadq")
 }],
 "loop": true,
-"name": &"run",
+"name": &"runSide",
 "speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw8um"]
 size = Vector2(50, 57)
 
-[node name="quaver" type="CharacterBody2D" unique_id=522088745]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8hf0"]
+radius = 51.0
+height = 148.0
+
+[node name="quaver" type="CharacterBody2D" unique_id=522088745 groups=["jugadorBeat"]]
 script = ExtResource("1_q8hf0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=984240392]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_y7t45")
-animation = &"attack"
-frame_progress = 0.3401667
+animation = &"combat"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1925622725]
 position = Vector2(0, 39.5)
 shape = SubResource("RectangleShape2D_pw8um")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=289013250]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1604214656]
+shape = SubResource("CapsuleShape2D_q8hf0")
+debug_color = Color(0, 0.63879114, 0.37814966, 0.41960785)
+
+[node name="damageSFX" type="AudioStreamPlayer" parent="." unique_id=2141446504]
+stream = ExtResource("21_ipoey")
+volume_db = 5.0
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

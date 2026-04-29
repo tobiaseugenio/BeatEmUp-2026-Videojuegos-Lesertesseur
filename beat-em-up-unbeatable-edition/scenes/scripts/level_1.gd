@@ -11,6 +11,7 @@ var cameraLocked = false
 var camera : Camera2D
 
 var beat
+var quaver
 var jugador
 @onready var spawner = $CopSpawner
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +26,7 @@ func _ready() -> void:
 	spawner.copDied.connect(copKilled)
 	
 	if GameManager.playerCount == 2:
-		var quaver = GameManager.quaverScene.instantiate()
+		quaver = GameManager.quaverScene.instantiate()
 		add_child(quaver)
 	await get_tree().process_frame
 	print(beat)
@@ -74,7 +75,8 @@ func configurarZona(zoneX: int):
 	$StaticBody2D/rightBorder.global_position.x = zoneX + halfScreen
 	beat.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, beat.global_position.y)
 	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y)
-	
+	quaver.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, quaver.global_position.y)
+		
 func liberarCamara():
 	cameraLocked = false
 	camera.limit_left  = -10000000
