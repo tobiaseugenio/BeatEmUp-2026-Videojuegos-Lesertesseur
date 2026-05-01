@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var objective = 2 
+@export var objective = 2
 @export var zones: Array[int] = [578, 1024, 1900]
 
 var copsKilled = 0
@@ -17,15 +17,13 @@ var jugador
 @onready var spawner2 = $CopSpawner2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 500, spawner.global_position.y - 70)
-
+	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 500, spawner.global_position.y - 170)
 	
 	beat = GameManager.beatScene.instantiate()
 	#jugador = get_tree().get_first_node_in_group("jugadorBeat")
 	add_child(beat)
 	
 	camera = beat.get_node("Camera2D")
-	
 	
 	spawner.copDied.connect(copKilled)
 	spawner2.copDied.connect(copKilled)
@@ -54,8 +52,10 @@ func spawnZoneOneEnemies():
 	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y)
 
 func spawnZoneTwoEnemies():
-	spawner2.show()
-	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 500, spawner.global_position.y + 70)
+	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y + 70)
+	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y)
+	
+	spawner2.activate()
 	objective = 3
 
 func spawnZoneThreeEnemies():

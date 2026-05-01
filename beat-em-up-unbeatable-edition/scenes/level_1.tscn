@@ -63,3 +63,4 @@ texture = ExtResource("4_4nkto")
 
 [node name="CopSpawner2" parent="." unique_id=135666050 instance=ExtResource("3_rus8k")]
 position = Vector2(1052, 364)
+active = false
