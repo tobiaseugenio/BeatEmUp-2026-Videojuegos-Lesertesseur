@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var objective = 2
+@export var objective = 1
 @export var zones: Array[int] = [578, 1024, 1900]
 
 var copsKilled = 0
@@ -15,18 +15,18 @@ var quaver
 var jugador
 @onready var spawner = $CopSpawner
 @onready var spawner2 = $CopSpawner2
+@onready var spawner3 = $CopSpawner3
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 500, spawner.global_position.y - 170)
-	
+func _ready() -> void:	
 	beat = GameManager.beatScene.instantiate()
-	#jugador = get_tree().get_first_node_in_group("jugadorBeat")
 	add_child(beat)
 	
 	camera = beat.get_node("Camera2D")
 	
 	spawner.copDied.connect(copKilled)
 	spawner2.copDied.connect(copKilled)
+	spawner3.copDied.connect(copKilled)
 	
 	if GameManager.playerCount == 2:
 		quaver = GameManager.quaverScene.instantiate()
@@ -56,10 +56,15 @@ func spawnZoneTwoEnemies():
 	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y)
 	
 	spawner2.activate()
-	objective = 3
+	objective = 1
 
 func spawnZoneThreeEnemies():
-	pass
+	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y + 70)
+	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 90)
+	spawner3.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 220)
+
+	spawner3.activate()
+	
 
 func changeZone(zonesIndex):
 	currentZone = zonesIndex
@@ -69,7 +74,10 @@ func changeZone(zonesIndex):
 	elif zonesIndex == 1:
 		spawnZoneTwoEnemies()
 		print("changeZone(zonesIndex) -> spawnZoneTwoEnemies()")
-		
+	elif zonesIndex == 2:
+		spawnZoneThreeEnemies()
+		print("changeZone(zonesIndex) -> spawnZoneThreeEnemies()")
+
 func zoneCompleted():
 	if transition:
 		return
