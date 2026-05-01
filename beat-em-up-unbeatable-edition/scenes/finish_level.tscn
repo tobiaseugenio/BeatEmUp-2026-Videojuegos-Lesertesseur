@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://clnwthjt3e4xe"]
+
+[ext_resource type="Script" uid="uid://b1okhm2axv2jp" path="res://scenes/scripts/finish_level.gd" id="1_6xpp0"]
+[ext_resource type="FontFile" uid="uid://da427sp0ti5se" path="res://ui/fonts/NikkyouSans-B6aV.ttf" id="2_nrl24"]
+[ext_resource type="AudioStream" uid="uid://b4esfjir0c2wj" path="res://ui/audio/results.mp3" id="3_0f547"]
+[ext_resource type="FontFile" uid="uid://b4qyymwof3h3b" path="res://ui/fonts/Rubik-Black.ttf" id="3_foq6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0f547"]
+bg_color = Color(0.98039216, 0.9411765, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foq6e"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0f547"]
+
+[node name="Control" type="Control" unique_id=594661592]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xpp0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=926798142]
+
+[node name="background" type="ColorRect" parent="CanvasLayer" unique_id=1293756581]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.98039216, 0.9411765, 0.8, 1)
+
+[node name="headerColor" type="ColorRect" parent="CanvasLayer" unique_id=1123430119]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.952488
+offset_top = -16.053123
+offset_right = 50.047485
+offset_bottom = -314.19705
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.032382537
+scale = Vector2(0.9601431, 0.41930225)
+color = Color(1, 0.3137255, 0.49019608, 1)
+
+[node name="footer2" type="Label" parent="CanvasLayer" unique_id=293815354]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = 122.0
+offset_right = 693.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9898275, 0.98205245)
+theme_override_colors/font_color = Color(0.8666667, 0.85490197, 0.7058824, 1)
+theme_override_fonts/font = ExtResource("2_nrl24")
+theme_override_font_sizes/font_size = 236
+text = "RESULTS"
+
+[node name="levelComplete" type="Label" parent="CanvasLayer" unique_id=1821034916]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -263.0
+offset_right = 916.0
+offset_bottom = -231.99998
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.033161256
+scale = Vector2(0.9898275, 0.98205245)
+theme_override_colors/font_color = Color(0.98039216, 0.9411765, 0.8, 1)
+theme_override_fonts/font = ExtResource("2_nrl24")
+theme_override_font_sizes/font_size = 29
+text = "LEVEL COMPLETE LEVEL COMPLETE LEVEL COMPLETE LEVEL COMPLETE LEVEL COMPLETE"
+
+[node name="remainingHealth" type="Label" parent="CanvasLayer" unique_id=510951856]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -78.5
+offset_right = -279.0
+offset_bottom = -33.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.69803923, 0.6901961, 0.5764706, 1)
+theme_override_font_sizes/font_size = 32
+text = "remaining health."
+
+[node name="remainingHealthValue" type="Label" parent="CanvasLayer" unique_id=934715738]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -479.0
+offset_top = -36.0
+offset_right = -264.0
+offset_bottom = 92.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.3137255, 0.49019608, 1)
+theme_override_fonts/font = ExtResource("3_foq6e")
+theme_override_font_sizes/font_size = 108
+text = "100"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=2044979261]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 144.0
+offset_top = -29.0
+offset_right = 316.0
+offset_bottom = 34.0
+grow_vertical = 2
+
+[node name="nextLevel" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1044677065]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3137255, 0.49019608, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_0f547")
+theme_override_styles/hover = SubResource("StyleBoxFlat_foq6e")
+text = "// next level.
+"
+alignment = 0
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/VBoxContainer" unique_id=1313492559]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0f547")
+
+[node name="quit" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1376824648]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3137255, 0.49019608, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_0f547")
+theme_override_styles/hover = SubResource("StyleBoxFlat_foq6e")
+text = "// quit."
+alignment = 0
+
+[node name="results" type="AudioStreamPlayer" parent="." unique_id=1072312317]
+stream = ExtResource("3_0f547")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
