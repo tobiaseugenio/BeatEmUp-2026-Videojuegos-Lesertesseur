@@ -13,5 +13,18 @@ func _process(delta: float) -> void:
 
 
 func _on_quit_pressed() -> void:
-	#$click.play()
+	$arcadeAccept.play()
 	get_tree().quit() 
+
+
+func _on_quit_mouse_entered() -> void:
+	$arcadeNav.play()
+
+
+func _on_next_level_mouse_entered() -> void:
+	$arcadeNav.play()
+
+
+func _on_next_level_pressed() -> void:
+	$arcadeAccept.play()
+	get_tree().change_scene_to_file(GameManager.nextLevel)

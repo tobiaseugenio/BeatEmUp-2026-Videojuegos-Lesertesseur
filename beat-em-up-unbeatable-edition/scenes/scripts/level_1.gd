@@ -91,6 +91,7 @@ func zoneCompleted():
 		print("nivel completado")
 		GameManager.remainingHealth = beat.HEALTH
 		level1_complete.emit()
+		GameManager.nextLevel = "res://scenes/level_2.tscn"
 		get_tree().change_scene_to_file("res://scenes/finish_level.tscn")
 		return
 		

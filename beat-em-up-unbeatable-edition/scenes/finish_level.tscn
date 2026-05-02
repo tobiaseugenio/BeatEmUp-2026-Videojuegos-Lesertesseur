@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://da427sp0ti5se" path="res://ui/fonts/NikkyouSans-B6aV.ttf" id="2_nrl24"]
 [ext_resource type="AudioStream" uid="uid://b4esfjir0c2wj" path="res://ui/audio/results.mp3" id="3_0f547"]
 [ext_resource type="FontFile" uid="uid://b4qyymwof3h3b" path="res://ui/fonts/Rubik-Black.ttf" id="3_foq6e"]
+[ext_resource type="AudioStream" uid="uid://dwgry27uiss5y" path="res://ui/audio/arcadeNav.MP3" id="5_56moj"]
+[ext_resource type="AudioStream" uid="uid://bbu43qi3g6621" path="res://ui/audio/arcadeAccept.MP3" id="6_oopjt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0f547"]
 bg_color = Color(0.98039216, 0.9411765, 0.8, 1)
@@ -153,6 +155,18 @@ alignment = 0
 
 [node name="results" type="AudioStreamPlayer" parent="." unique_id=1072312317]
 stream = ExtResource("3_0f547")
+volume_db = -16.421
 autoplay = true
 
+[node name="arcadeNav" type="AudioStreamPlayer" parent="." unique_id=772945516]
+stream = ExtResource("5_56moj")
+volume_db = 7.0
+
+[node name="arcadeAccept" type="AudioStreamPlayer" parent="." unique_id=1872621212]
+stream = ExtResource("6_oopjt")
+volume_db = 7.0
+
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/nextLevel" to="." method="_on_next_level_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/nextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

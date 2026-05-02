@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_quit_pressed() -> void:
 	$click.play()
+	await $click.finished 
 	get_tree().quit() 
 
 

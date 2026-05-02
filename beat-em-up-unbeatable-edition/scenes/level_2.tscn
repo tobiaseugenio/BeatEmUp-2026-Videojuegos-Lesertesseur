@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b2g6tfut3l1b3"]
+
+[node name="Level2" type="Node2D" unique_id=1470608464]
+
+[node name="Label" type="Label" parent="." unique_id=1352431009]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 106.0
+offset_top = 18.0
+offset_right = 915.0
+offset_bottom = 410.0
+grow_horizontal = 2
+text = "NIVEL 2"
