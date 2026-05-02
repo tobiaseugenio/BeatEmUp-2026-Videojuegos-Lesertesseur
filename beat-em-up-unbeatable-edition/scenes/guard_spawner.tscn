@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cept5e45kvtrn"]
+
+[ext_resource type="Script" uid="uid://bh0vulwvng052" path="res://scenes/scripts/guard_spawner.gd" id="1_x7ygh"]
+[ext_resource type="PackedScene" uid="uid://ban4aaiofbwcp" path="res://scenes/guard.tscn" id="2_rjlho"]
+
+[node name="GuardSpawner" type="Node2D" unique_id=1254962575]
+script = ExtResource("1_x7ygh")
+guardScene = ExtResource("2_rjlho")

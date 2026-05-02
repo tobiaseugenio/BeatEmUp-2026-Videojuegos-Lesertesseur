@@ -1,14 +1,36 @@
 [gd_scene format=3 uid="uid://b2g6tfut3l1b3"]
 
-[node name="Level2" type="Node2D" unique_id=1470608464]
+[ext_resource type="Script" uid="uid://dyrebrubftm68" path="res://scenes/scripts/level_2.gd" id="1_3bmlt"]
 
-[node name="Label" type="Label" parent="." unique_id=1352431009]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 106.0
-offset_top = 18.0
-offset_right = 915.0
-offset_bottom = 410.0
-grow_horizontal = 2
-text = "NIVEL 2"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bmlt"]
+size = Vector2(19, 657)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jm1iu"]
+size = Vector2(1166, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbc48"]
+size = Vector2(1169, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqxsl"]
+size = Vector2(30, 667)
+
+[node name="Level2" type="Node2D" unique_id=1470608464]
+script = ExtResource("1_3bmlt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=490517848]
+
+[node name="leftBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=877035402]
+position = Vector2(0, 318.5)
+shape = SubResource("RectangleShape2D_3bmlt")
+
+[node name="topBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=1613570669]
+position = Vector2(573, 0)
+shape = SubResource("RectangleShape2D_jm1iu")
+
+[node name="downBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=804249228]
+position = Vector2(574.5, 648)
+shape = SubResource("RectangleShape2D_pbc48")
+
+[node name="rightBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=267980943]
+position = Vector2(1157, 323.5)
+shape = SubResource("RectangleShape2D_eqxsl")

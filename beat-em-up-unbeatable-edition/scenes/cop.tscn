@@ -184,7 +184,7 @@ script = ExtResource("1_d8chx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=985451888]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_kxsfj")
-animation = &"combat"
+animation = &"runSide"
 speed_scale = 1.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=215781635]
