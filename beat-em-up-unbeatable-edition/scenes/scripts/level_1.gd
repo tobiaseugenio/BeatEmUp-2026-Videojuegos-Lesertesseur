@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var objective = 1
-@export var zones: Array[int] = [578, 1024, 1900]
+@export var objective = 2
+@export var zones: Array[int] = [578, 1024, 1900, 2300]
 
 var copsKilled = 0
 var currentZone = 0
@@ -57,14 +57,14 @@ func spawnZoneTwoEnemies():
 	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 30, spawner2.global_position.y + 50)
 	
 	spawner2.activate()
-	objective = 2
+	objective = 3
 
 func spawnZoneThreeEnemies():
 	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y + 70)
 	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 90)
 	spawner3.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 50)
 	
-	objective = 3
+	objective = 4
 	spawner3.activate()
 	
 
@@ -77,6 +77,9 @@ func changeZone(zonesIndex):
 		spawnZoneTwoEnemies()
 		print("changeZone(zonesIndex) -> spawnZoneTwoEnemies()")
 	elif zonesIndex == 2:
+		spawnZoneThreeEnemies()
+		print("changeZone(zonesIndex) -> spawnZoneThreeEnemies()")
+	elif zonesIndex == 3:
 		spawnZoneThreeEnemies()
 		print("changeZone(zonesIndex) -> spawnZoneThreeEnemies()")
 

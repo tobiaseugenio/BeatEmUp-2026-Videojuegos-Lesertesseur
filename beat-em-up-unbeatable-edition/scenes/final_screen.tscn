@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://desivlys0fypy"]
+
+[ext_resource type="FontFile" uid="uid://ovffjowa13k3" path="res://ui/fonts/RubikMonoOne-Regular.ttf" id="1_5qnvr"]
+[ext_resource type="Script" uid="uid://882764c3ggic" path="res://scenes/scripts/final_screen.gd" id="1_6laal"]
+[ext_resource type="FontFile" uid="uid://da427sp0ti5se" path="res://ui/fonts/NikkyouSans-B6aV.ttf" id="2_lhaix"]
+[ext_resource type="AudioStream" uid="uid://b4esfjir0c2wj" path="res://ui/audio/results.mp3" id="3_k56e7"]
+[ext_resource type="AudioStream" uid="uid://dwgry27uiss5y" path="res://ui/audio/arcadeNav.MP3" id="4_6laal"]
+[ext_resource type="AudioStream" uid="uid://bbu43qi3g6621" path="res://ui/audio/arcadeAccept.MP3" id="5_cdp6w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhaix"]
+bg_color = Color(0.98039216, 0.9411765, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbqai"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=677550924]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6laal")
+
+[node name="background" type="ColorRect" parent="." unique_id=1073147227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.98039216, 0.9411765, 0.8, 1)
+
+[node name="Label" type="Label" parent="." unique_id=417507439]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.99607843, 0.2901961, 0.4862745, 1)
+theme_override_fonts/font = ExtResource("1_5qnvr")
+theme_override_font_sizes/font_size = 56
+text = "THANK YOU FOR PLAYING"
+horizontal_alignment = 1
+
+[node name="footer2" type="Label" parent="." unique_id=80219378]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -411.99997
+offset_right = 603.0
+offset_bottom = -141.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9898275, 0.98205245)
+theme_override_colors/font_color = Color(0.8666667, 0.85490197, 0.7058824, 1)
+theme_override_fonts/font = ExtResource("2_lhaix")
+theme_override_font_sizes/font_size = 236
+text = "GAME"
+
+[node name="footer3" type="Label" parent="." unique_id=1401930565]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.0
+offset_top = 132.0
+offset_right = 339.0
+offset_bottom = 402.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9898275, 0.98205245)
+theme_override_colors/font_color = Color(0.8666667, 0.85490197, 0.7058824, 1)
+theme_override_fonts/font = ExtResource("2_lhaix")
+theme_override_font_sizes/font_size = 236
+text = "OVER"
+
+[node name="restartGame" type="Button" parent="." unique_id=1671546549]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 45.0
+offset_right = 52.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.3137255, 0.49019608, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhaix")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bbqai")
+text = "// restart game."
+alignment = 0
+
+[node name="headerColor" type="ColorRect" parent="." unique_id=1970941804]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.36195
+offset_top = 26.498026
+offset_right = -919.50635
+offset_bottom = -349.59406
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.49209398
+scale = Vector2(0.9601431, 0.41930225)
+color = Color(1, 0.3137255, 0.49019608, 1)
+
+[node name="headerColor2" type="ColorRect" parent="." unique_id=1178890553]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 993.9999
+offset_top = 647.99994
+offset_right = 138.85547
+offset_bottom = 271.90784
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.49209398
+scale = Vector2(0.9601431, 0.41930225)
+color = Color(1, 0.3137255, 0.49019608, 1)
+
+[node name="results" type="AudioStreamPlayer" parent="." unique_id=2073329673]
+stream = ExtResource("3_k56e7")
+volume_db = -16.421
+autoplay = true
+
+[node name="arcadeNav" type="AudioStreamPlayer" parent="." unique_id=262549166]
+stream = ExtResource("4_6laal")
+volume_db = 7.0
+
+[node name="arcadeAccept" type="AudioStreamPlayer" parent="." unique_id=331906791]
+stream = ExtResource("5_cdp6w")
+volume_db = 7.0
+
+[connection signal="mouse_entered" from="restartGame" to="." method="_on_restart_game_mouse_entered"]
+[connection signal="pressed" from="restartGame" to="." method="_on_restart_game_pressed"]

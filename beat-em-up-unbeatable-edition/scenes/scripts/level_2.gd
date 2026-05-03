@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var objective = 1
-@export var zones: Array[int] = [578, 1024, 1900]
+@export var zones: Array[int] = [578, 1024, 1900, 2300]
 
 var guardsKilled = 0
 var currentZone = 0
@@ -60,14 +60,14 @@ func spawnZoneTwoEnemies():
 	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y)
 	
 	spawner2.activate()
-	objective = 2
+	objective = 3
 
 func spawnZoneThreeEnemies():
 	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y + 70)
 	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 90)
 	spawner3.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 220)
 	
-	objective = 3
+	objective = 4
 	spawner3.activate()
 	
 
@@ -82,6 +82,9 @@ func changeZone(zonesIndex):
 	elif zonesIndex == 2:
 		spawnZoneThreeEnemies()
 		print("changeZone(zonesIndex) -> spawnZoneThreeEnemies()")
+	elif zonesIndex == 3:
+		spawnZoneThreeEnemies()
+		print("changeZone(zonesIndex) -> spawnZoneThreeEnemies()")
 
 func zoneCompleted():
 	if transition:
@@ -92,7 +95,7 @@ func zoneCompleted():
 	if nextZone >= zones.size():
 		print("nivel completado")
 		GameManager.remainingHealth = beat.HEALTH
-		GameManager.nextLevel = "res://scenes/level_3.tscn"
+		GameManager.nextLevel = "res://scenes/final_screen.tscn"
 		get_tree().change_scene_to_file("res://scenes/finish_level.tscn")
 		return
 		
@@ -111,9 +114,9 @@ func configurarZona(zoneX: int):
 	camera.limit_right = zoneX + halfScreen
 	$StaticBody2D/leftBorder.global_position.x = zoneX - halfScreen
 	$StaticBody2D/rightBorder.global_position.x = zoneX + halfScreen
-	beat.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, beat.global_position.y)
+	beat.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 40, beat.global_position.y)
 	if GameManager.playerCount == 2:
-		quaver.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 20, quaver.global_position.y)
+		quaver.global_position = Vector2($StaticBody2D/leftBorder.global_position.x + 40, quaver.global_position.y)
 	changeZone(currentZone)
 	
 func liberarCamara():

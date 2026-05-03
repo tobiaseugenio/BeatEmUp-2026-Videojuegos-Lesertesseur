@@ -8,6 +8,9 @@ size = Vector2(1155, 400)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ug501"]
 size = Vector2(110.5, 219.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k1xc"]
+size = Vector2(1167, 17)
+
 [node name="stage_1" type="StaticBody2D" unique_id=1256897707]
 
 [node name="Level1Background" type="Sprite2D" parent="." unique_id=1758387759]
@@ -24,3 +27,8 @@ debug_color = Color(0.75461996, 0.3388045, 0, 0.41960785)
 position = Vector2(271.75, 313.25)
 shape = SubResource("RectangleShape2D_ug501")
 debug_color = Color(0.9174889, 0.28606722, 0.02350032, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=732257543]
+position = Vector2(573.5, 648.5)
+shape = SubResource("RectangleShape2D_4k1xc")
+debug_color = Color(0.95102304, 9.62615e-08, 0.5681353, 0.41960785)

@@ -63,3 +63,6 @@ active = false
 [node name="CopSpawner3" parent="." unique_id=89909068 instance=ExtResource("3_rus8k")]
 position = Vector2(1052, 364)
 active = false
+
+[node name="level_1_stage5" parent="." unique_id=1175655211 instance=ExtResource("5_4nkto")]
+position = Vector2(4598, 0)
