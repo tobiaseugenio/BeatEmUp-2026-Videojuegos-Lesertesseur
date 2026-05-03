@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dih0jyg8xrpa3" path="res://scenes/scripts/level_1.gd" id="1_bswci"]
 [ext_resource type="PackedScene" uid="uid://dv4sl0xlhocdg" path="res://scenes/cop_spawner.tscn" id="3_rus8k"]
-[ext_resource type="Texture2D" uid="uid://b6qhjvnbtqlcr" path="res://icon.svg" id="4_4nkto"]
 [ext_resource type="AudioStream" uid="uid://dglredis2k2aw" path="res://ui/audio/copTrauma.MP3" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://iylvgopg5tf" path="res://scenes/level_1_stage.tscn" id="5_4nkto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rus8k"]
 size = Vector2(3822, 20)
@@ -19,6 +19,17 @@ size = Vector2(28, 662)
 
 [node name="Level1" type="Node2D" unique_id=1409125102]
 script = ExtResource("1_bswci")
+
+[node name="level_1_stage4" parent="." unique_id=1256897707 instance=ExtResource("5_4nkto")]
+position = Vector2(2302, 0)
+
+[node name="level_1_stage3" parent="." unique_id=2077566056 instance=ExtResource("5_4nkto")]
+position = Vector2(3446, 0)
+
+[node name="level_1_stage2" parent="." unique_id=582828457 instance=ExtResource("5_4nkto")]
+
+[node name="level_1_stage" parent="." unique_id=1272834489 instance=ExtResource("5_4nkto")]
+position = Vector2(1151, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2000912701]
 
@@ -44,22 +55,6 @@ autoplay = true
 
 [node name="CopSpawner" parent="." unique_id=392330321 instance=ExtResource("3_rus8k")]
 position = Vector2(1052, 364)
-
-[node name="Icon" type="Sprite2D" parent="." unique_id=1597278126]
-position = Vector2(1, 339)
-texture = ExtResource("4_4nkto")
-
-[node name="Icon2" type="Sprite2D" parent="." unique_id=1194462940]
-position = Vector2(1157, 316)
-texture = ExtResource("4_4nkto")
-
-[node name="Icon3" type="Sprite2D" parent="." unique_id=1851032726]
-position = Vector2(2190, 297)
-texture = ExtResource("4_4nkto")
-
-[node name="Icon4" type="Sprite2D" parent="." unique_id=1356013582]
-position = Vector2(3367, 337)
-texture = ExtResource("4_4nkto")
 
 [node name="CopSpawner2" parent="." unique_id=135666050 instance=ExtResource("3_rus8k")]
 position = Vector2(1052, 364)

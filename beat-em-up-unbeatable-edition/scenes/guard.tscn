@@ -3,25 +3,18 @@
 [ext_resource type="Script" uid="uid://vtngdaxx0u8w" path="res://scenes/scripts/guard.gd" id="1_m4fl1"]
 [ext_resource type="Texture2D" uid="uid://df6sdx5s7l556" path="res://sprites/guard/idle/idle_front-guard_idle_front_0000.png" id="2_5dfqo"]
 [ext_resource type="Texture2D" uid="uid://lvdcf13rauru" path="res://sprites/guard/damage/punched-guard1_riot_punched_0000.png" id="2_17ufb"]
-[ext_resource type="Texture2D" uid="uid://bpy26ou2yr5ia" path="res://sprites/guard/attack/punch-guard1_riot_punch_0000.png" id="2_b24lj"]
 [ext_resource type="Texture2D" uid="uid://5gcq4nvy66va" path="res://sprites/guard/attack/punch-guard1_riot_punch_0001.png" id="3_hspyp"]
 [ext_resource type="Texture2D" uid="uid://ct0ucvefi8wbx" path="res://sprites/guard/damage/punched-guard1_riot_punched_0001.png" id="3_nflhy"]
 [ext_resource type="Texture2D" uid="uid://bn3ch043ywuue" path="res://sprites/guard/idle/idle_front-guard_idle_front_0015.png" id="3_ywdc2"]
 [ext_resource type="Texture2D" uid="uid://b2q6fcy1tnyq0" path="res://sprites/guard/attack/punch-guard1_riot_punch_0002.png" id="4_47c6n"]
 [ext_resource type="Texture2D" uid="uid://c75ss4yg46jrs" path="res://sprites/guard/idle/idle_front-guard_idle_front_0020.png" id="4_c4sgu"]
 [ext_resource type="Texture2D" uid="uid://hgwu1d3n0plt" path="res://sprites/guard/damage/punched-guard1_riot_punched_0002.png" id="4_ybvlj"]
-[ext_resource type="Texture2D" uid="uid://dmdbbkg0jt13v" path="res://sprites/guard/attack/punch-guard1_riot_punch_0003.png" id="5_3drdm"]
 [ext_resource type="Texture2D" uid="uid://ckcijcqtj7uqc" path="res://sprites/guard/idle/idle_front-guard_idle_front_0028.png" id="5_rmy4q"]
 [ext_resource type="Texture2D" uid="uid://1sqqpboew5cf" path="res://sprites/guard/damage/punched-guard1_riot_punched_0003.png" id="5_vuaq3"]
 [ext_resource type="Texture2D" uid="uid://cyexbsfs4o6m0" path="res://sprites/guard/damage/punched-guard1_riot_punched_0004.png" id="6_00o3k"]
 [ext_resource type="Texture2D" uid="uid://bl0xu5db50ya" path="res://sprites/guard/idle/idle_front-guard_idle_front_0036.png" id="6_vd6r2"]
-[ext_resource type="Texture2D" uid="uid://cb6x7egym727s" path="res://sprites/guard/attack/punch-guard1_riot_punch_0004.png" id="6_xx4ti"]
-[ext_resource type="Texture2D" uid="uid://dsayuyctganwy" path="res://sprites/guard/attack/punch-guard1_riot_punch_0005.png" id="7_qah8q"]
 [ext_resource type="AudioStream" uid="uid://dds3ki8qmq0xr" path="res://ui/audio/punch.MP3" id="7_ywdc2"]
-[ext_resource type="Texture2D" uid="uid://b7oalkifin5co" path="res://sprites/guard/attack/punch-guard1_riot_punch_0006.png" id="8_tbwvv"]
 [ext_resource type="Texture2D" uid="uid://bw8moiy7yv2ne" path="res://sprites/guard/attack/punch-guard1_riot_punch_0007.png" id="9_j3ty1"]
-[ext_resource type="Texture2D" uid="uid://c2hg33tfc7o5e" path="res://sprites/guard/attack/punch-guard1_riot_punch_0008.png" id="10_lolpx"]
-[ext_resource type="Texture2D" uid="uid://bk2x8avt3xlnc" path="res://sprites/guard/attack/punch-guard1_riot_punch_0009.png" id="11_fpgbb"]
 [ext_resource type="Texture2D" uid="uid://d1sv7wvc2cxqi" path="res://sprites/guard/run/side/walk_side-guard_walk_side_0000.png" id="22_ny3hu"]
 [ext_resource type="Texture2D" uid="uid://bf32pteyf72xx" path="res://sprites/guard/run/side/walk_side-guard_walk_side_0001.png" id="23_qbotl"]
 [ext_resource type="Texture2D" uid="uid://630wk275yvgp" path="res://sprites/guard/run/side/walk_side-guard_walk_side_0002.png" id="24_p1bsf"]
@@ -45,34 +38,13 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_b24lj")
-}, {
-"duration": 1.0,
 "texture": ExtResource("3_hspyp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_47c6n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_3drdm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_xx4ti")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_qah8q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_tbwvv")
-}, {
-"duration": 1.0,
 "texture": ExtResource("9_j3ty1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_lolpx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_fpgbb")
 }],
 "loop": false,
 "name": &"combat",
@@ -174,7 +146,7 @@ animations = [{
 "texture": ExtResource("39_jjrcl")
 }],
 "loop": true,
-"name": &"run",
+"name": &"runSide",
 "speed": 22.0
 }]
 
@@ -185,13 +157,15 @@ size = Vector2(63, 110)
 radius = 66.0
 height = 214.0
 
-[node name="guard" type="CharacterBody2D" unique_id=321274128]
+[node name="guard" type="CharacterBody2D" unique_id=321274128 groups=["enemigo"]]
 script = ExtResource("1_m4fl1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1630704110]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_m4fl1")
 animation = &"combat"
+autoplay = "idle"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=460359154]
 position = Vector2(2.5, 45)
@@ -206,3 +180,6 @@ debug_color = Color(5.3425133e-06, 0.62843597, 0.4954638, 0.41960785)
 [node name="damageSFX" type="AudioStreamPlayer" parent="." unique_id=413085151]
 stream = ExtResource("7_ywdc2")
 volume_db = 5.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="child_entered_tree" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_child_entered_tree"]

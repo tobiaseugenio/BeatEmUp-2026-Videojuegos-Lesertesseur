@@ -22,7 +22,7 @@ const stateAnimations={
 }
 
 func _ready():
-	global_position = Vector2(100, 400)
+	global_position = Vector2(100, 600)
 
 func _physics_process(delta: float) -> void:
 	input()

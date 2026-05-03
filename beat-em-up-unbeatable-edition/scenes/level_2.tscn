@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://b2g6tfut3l1b3"]
 
 [ext_resource type="Script" uid="uid://dyrebrubftm68" path="res://scenes/scripts/level_2.gd" id="1_3bmlt"]
+[ext_resource type="PackedScene" uid="uid://cept5e45kvtrn" path="res://scenes/guard_spawner.tscn" id="2_jm1iu"]
+[ext_resource type="Texture2D" uid="uid://b6qhjvnbtqlcr" path="res://icon.svg" id="3_pbc48"]
+[ext_resource type="AudioStream" uid="uid://b40hf1vtwyivq" path="res://ui/audio/warden.MP3" id="4_eqxsl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bmlt"]
 size = Vector2(19, 657)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jm1iu"]
-size = Vector2(1166, 20)
+size = Vector2(2759, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbc48"]
-size = Vector2(1169, 20)
+size = Vector2(2759, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqxsl"]
 size = Vector2(30, 667)
@@ -24,13 +27,31 @@ position = Vector2(0, 318.5)
 shape = SubResource("RectangleShape2D_3bmlt")
 
 [node name="topBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=1613570669]
-position = Vector2(573, 0)
+position = Vector2(1369.5, 0)
 shape = SubResource("RectangleShape2D_jm1iu")
 
 [node name="downBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=804249228]
-position = Vector2(574.5, 648)
+position = Vector2(1369.5, 648)
 shape = SubResource("RectangleShape2D_pbc48")
 
 [node name="rightBorder" type="CollisionShape2D" parent="StaticBody2D" unique_id=267980943]
 position = Vector2(1157, 323.5)
 shape = SubResource("RectangleShape2D_eqxsl")
+
+[node name="GuardSpawner" parent="." unique_id=1254962575 instance=ExtResource("2_jm1iu")]
+position = Vector2(1038, 378)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1138489108]
+position = Vector2(605, 381)
+texture = ExtResource("3_pbc48")
+
+[node name="GuardSpawner2" parent="." unique_id=899993356 instance=ExtResource("2_jm1iu")]
+position = Vector2(1038, 378)
+
+[node name="GuardSpawner3" parent="." unique_id=1282830240 instance=ExtResource("2_jm1iu")]
+position = Vector2(1038, 378)
+
+[node name="warden" type="AudioStreamPlayer" parent="." unique_id=1526636042]
+stream = ExtResource("4_eqxsl")
+volume_db = 2.737
+autoplay = true

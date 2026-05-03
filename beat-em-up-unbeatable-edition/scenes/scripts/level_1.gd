@@ -17,8 +17,6 @@ var jugador
 @onready var spawner2 = $CopSpawner2
 @onready var spawner3 = $CopSpawner3
 
-signal level1_complete
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
 	beat = GameManager.beatScene.instantiate()
@@ -54,8 +52,8 @@ func spawnZoneOneEnemies():
 	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y)
 
 func spawnZoneTwoEnemies():
-	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y + 70)
-	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y)
+	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 40, spawner.global_position.y + 70)
+	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 30, spawner2.global_position.y + 50)
 	
 	spawner2.activate()
 	objective = 1
@@ -63,7 +61,7 @@ func spawnZoneTwoEnemies():
 func spawnZoneThreeEnemies():
 	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y + 70)
 	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 90)
-	spawner3.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 220)
+	spawner3.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 50)
 	
 	objective = 2
 	spawner3.activate()
@@ -90,7 +88,6 @@ func zoneCompleted():
 	if nextZone >= zones.size():
 		print("nivel completado")
 		GameManager.remainingHealth = beat.HEALTH
-		level1_complete.emit()
 		GameManager.nextLevel = "res://scenes/level_2.tscn"
 		get_tree().change_scene_to_file("res://scenes/finish_level.tscn")
 		return

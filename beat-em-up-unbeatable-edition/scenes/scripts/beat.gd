@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var HEALTH = 100
-@export var HIT = 102
+@export var HIT = 10
 @export var direction = Vector2.ZERO
 
 signal died
@@ -22,7 +22,7 @@ const stateAnimations={
 }
 
 func _ready():
-	global_position = Vector2(100, 200)
+	global_position = Vector2(100, 500)
 
 func _physics_process(delta: float) -> void:
 	input()

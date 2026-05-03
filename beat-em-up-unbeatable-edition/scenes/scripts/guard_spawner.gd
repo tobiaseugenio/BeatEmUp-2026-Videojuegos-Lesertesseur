@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var guardScene: PackedScene
-@export var active = true
+@export var active = false
 signal guardDied
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +19,6 @@ func spawnGuard():
 	var newGuard = guardScene.instantiate()
 	newGuard.died.connect(diedSpawner)
 	add_child(newGuard)
-	#print("copSpawner.gd -> spawnCop()")
 
 func diedSpawner():
 	guardDied.emit()	
@@ -28,8 +27,8 @@ func diedSpawner():
 func activate():
 	active = true
 	spawnGuard()
-	print("cop_spawner.gd -> activate()")
+	print("guard_spawner.gd -> activate()")
 	
 func deactivate():
 	active = false
-	print("cop_spawner.gd -> deactivate()")
+	print("guard_spawner.gd -> deactivate()")

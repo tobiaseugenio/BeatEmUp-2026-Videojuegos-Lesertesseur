@@ -111,3 +111,7 @@ func flipSprite():
 func _on_died() -> void:
 	pass
 	#died.emit()
+
+
+func _on_animated_sprite_2d_child_entered_tree(node: Node) -> void:
+	pass # Replace with function body.
