@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var HEALTH = 30
-@export var HIT = 15
+@export var HIT = 511
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 var jugador
@@ -27,6 +27,8 @@ func _ready() -> void:
 	
 
 func find_player():
+	if !is_inside_tree():
+		return
 	jugador = get_tree().get_first_node_in_group("jugadorBeat")
 
 func _physics_process(delta: float) -> void:
@@ -40,6 +42,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 func chase():
+	if !is_instance_valid(jugador):
+		return
 	if state == State.DAMAGE or state == State.COMBAT or ! is_instance_valid(jugador) :
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -96,6 +100,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			if body.is_in_group("jugadorBeat"):
 				body.takeDamage(HIT)
 		state = State.IDLE 
+		if !is_inside_tree():
+			return
 		await get_tree().create_timer(timeCooldown).timeout
 		attackCooldown = false
 		state = State.RUN

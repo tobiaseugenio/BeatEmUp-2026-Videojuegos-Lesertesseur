@@ -25,6 +25,8 @@ func _ready():
 	global_position = Vector2(100, 500)
 
 func _physics_process(delta: float) -> void:
+	if !is_inside_tree():
+		return
 	input()
 	movement()
 	animation()
@@ -89,4 +91,5 @@ func takeDamage(damage):
 	state = State.DAMAGE
 	if HEALTH <= 0:			
 		died.emit()
+		get_tree().change_scene_to_file("res://scenes/restart_screen.tscn")
 		queue_free()

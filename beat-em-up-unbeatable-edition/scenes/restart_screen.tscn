@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://ny6p3ajppei5"]
+
+[ext_resource type="FontFile" uid="uid://da427sp0ti5se" path="res://ui/fonts/NikkyouSans-B6aV.ttf" id="1_a0ykt"]
+[ext_resource type="Script" uid="uid://dp5fcdyrh84m3" path="res://scenes/scripts/restart_screen.gd" id="1_krcxg"]
+[ext_resource type="FontFile" uid="uid://b4qyymwof3h3b" path="res://ui/fonts/Rubik-Black.ttf" id="2_krcxg"]
+[ext_resource type="AudioStream" uid="uid://b4esfjir0c2wj" path="res://ui/audio/results.mp3" id="4_m8xo7"]
+[ext_resource type="AudioStream" uid="uid://dwgry27uiss5y" path="res://ui/audio/arcadeNav.MP3" id="5_r8rly"]
+[ext_resource type="AudioStream" uid="uid://bbu43qi3g6621" path="res://ui/audio/arcadeAccept.MP3" id="6_orvaf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysrky"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fiked"]
+bg_color = Color(0.627451, 0.627451, 0.5372549, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8xo7"]
+
+[node name="Control" type="Control" unique_id=1829206446]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_krcxg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1829101293]
+
+[node name="background" type="ColorRect" parent="CanvasLayer" unique_id=978346441]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="headerColor" type="ColorRect" parent="CanvasLayer" unique_id=143896269]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.952488
+offset_top = -16.053123
+offset_right = 50.047485
+offset_bottom = -314.19705
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.032382537
+scale = Vector2(0.9601431, 0.41930225)
+color = Color(0, 0.29411766, 0.827451, 1)
+
+[node name="footer2" type="Label" parent="CanvasLayer" unique_id=822830310]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = 122.0
+offset_right = 693.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9898275, 0.98205245)
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.5372549, 1)
+theme_override_fonts/font = ExtResource("1_a0ykt")
+theme_override_font_sizes/font_size = 236
+text = "YOU DIED"
+
+[node name="levelComplete" type="Label" parent="CanvasLayer" unique_id=1584469959]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -263.0
+offset_right = 916.0
+offset_bottom = -231.99998
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.033161256
+scale = Vector2(0.9898275, 0.98205245)
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.5372549, 1)
+theme_override_fonts/font = ExtResource("1_a0ykt")
+theme_override_font_sizes/font_size = 29
+text = "LEVEL FAILED LEVEL FAILED LEVEL FAILED LEVEL FAILED LEVEL FAILED LEVEL "
+
+[node name="remainingHealthValue" type="Label" parent="CanvasLayer" unique_id=466722763]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -661.0
+offset_top = -65.0
+offset_right = -62.0
+offset_bottom = 63.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.29411766, 0.827451, 1)
+theme_override_fonts/font = ExtResource("2_krcxg")
+theme_override_font_sizes/font_size = 108
+text = "TRY AGAIN"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=893566649]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 144.0
+offset_top = -29.0
+offset_right = 316.0
+offset_bottom = 34.0
+grow_vertical = 2
+
+[node name="restartLevel" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1951638117]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.5372549, 1)
+theme_override_colors/font_hover_color = Color(0, 0.29411766, 0.827451, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ysrky")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fiked")
+text = "// restart level.
+"
+alignment = 0
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/VBoxContainer" unique_id=1382881261]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_m8xo7")
+
+[node name="quit" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1431818682]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.5372549, 1)
+theme_override_colors/font_hover_color = Color(0, 0.29411766, 0.827451, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ysrky")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fiked")
+text = "// quit."
+alignment = 0
+
+[node name="results" type="AudioStreamPlayer" parent="." unique_id=1682155894]
+stream = ExtResource("4_m8xo7")
+volume_db = -16.421
+autoplay = true
+
+[node name="arcadeNav" type="AudioStreamPlayer" parent="." unique_id=1666513578]
+stream = ExtResource("5_r8rly")
+volume_db = 7.0
+
+[node name="arcadeAccept" type="AudioStreamPlayer" parent="." unique_id=1706899875]
+stream = ExtResource("6_orvaf")
+volume_db = 7.0
+
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/restartLevel" to="." method="_on_restart_level_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/restartLevel" to="." method="_on_restart_level_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

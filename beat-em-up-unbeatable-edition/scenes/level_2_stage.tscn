@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bifgen7b4cd27"]
+
+[ext_resource type="Texture2D" uid="uid://ckmm8i5s2rr8v" path="res://ui/backgrounds/level2/stage.jpg" id="1_tusp7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tusp7"]
+size = Vector2(3697, 367)
+
+[node name="level_2_stage" type="StaticBody2D" unique_id=850942270]
+
+[node name="stage" type="Sprite2D" parent="." unique_id=1763456563]
+position = Vector2(1710.9355, 267.4062)
+scale = Vector2(1.7866937, 1.7866935)
+texture = ExtResource("1_tusp7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1502610701]
+position = Vector2(1838.5, 173.5)
+shape = SubResource("RectangleShape2D_tusp7")
+debug_color = Color(0.9584257, 3.080368e-06, 0.5298511, 0.41960785)

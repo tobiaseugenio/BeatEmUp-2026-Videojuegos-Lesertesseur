@@ -19,6 +19,7 @@ var jugador
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
+	GameManager.currentLevel = "res://scenes/level_2.tscn"
 	beat = GameManager.beatScene.instantiate()
 	add_child(beat)
 	
@@ -59,14 +60,14 @@ func spawnZoneTwoEnemies():
 	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y)
 	
 	spawner2.activate()
-	objective = 1
+	objective = 2
 
 func spawnZoneThreeEnemies():
 	spawner.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner.global_position.y + 70)
 	spawner2.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 90)
 	spawner3.global_position = Vector2($StaticBody2D/rightBorder.global_position.x - 20, spawner2.global_position.y - 220)
 	
-	objective = 2
+	objective = 3
 	spawner3.activate()
 	
 

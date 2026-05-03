@@ -5,6 +5,7 @@ var beatScene = preload("res://scenes/beat.tscn")
 var quaverScene = preload("res://scenes/quaver.tscn")
 var remainingHealth = 0
 var nextLevel
+var currentLevel
 
 func start(players):
 	playerCount = players
