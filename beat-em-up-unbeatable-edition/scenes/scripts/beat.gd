@@ -44,6 +44,7 @@ func movement():
 		state = State.RUN
 		
 func input():
+	#CORRECCION: Input.get_axis("dKey","aKey") quizá más cool. De dónde salió esta secuencia? Banham, Diosquez y Hermosilla tienen lo mismo
 	direction.x = Input.get_action_strength("dKey") - Input.get_action_strength("aKey")
 	direction.y = Input.get_action_strength("sKey") - Input.get_action_strength("wKey")
 

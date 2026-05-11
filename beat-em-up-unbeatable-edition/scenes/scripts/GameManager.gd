@@ -7,6 +7,7 @@ var remainingHealth = 0
 var nextLevel
 var currentLevel
 
+#CORRECCION: Si te diste cuenta que tenías que usar este GameManager para cambiar de escena por qué no lo usaste para cambiar todas?
 func start(players):
 	playerCount = players
 	get_tree().change_scene_to_file("res://scenes/level_1.tscn")

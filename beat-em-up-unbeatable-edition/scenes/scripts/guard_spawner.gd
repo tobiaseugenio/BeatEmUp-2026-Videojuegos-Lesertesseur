@@ -1,4 +1,5 @@
 extends Node2D
+#CORRECCION: Idéntico a cop_spawner, tenés que parametrizar. Mirás todo lo distinto que tienen, lo hacés variable y ya. Lo más gracioso es que no tenés que hacer ningún cambio en estos. Quizá en cop.gd y guard.gd tampoco, sería increíble haber copiado dos scripts que programaste perfectos para parametrizar pero que elegiste no hacerlo.
 
 @export var guardScene: PackedScene
 @export var active = false

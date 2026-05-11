@@ -108,6 +108,8 @@ func zoneCompleted():
 	configurarZona(zones[currentZone])
 
 func configurarZona(zoneX: int):
+	#CORRECCION: Esta transición de zona es demasiado brusca. Lo esperado era que vos caminaras hacia la otra sección. Lo mejor para usar esta solución era dejar al pj donde estaba, y que los enemigos aparezcan fuera de la pantalla y vayan entrando.
+	#EDIT: Recién me puse a mirar y resulta que sí tenés zonas, como son el mismo background y hacés la teleportación no me avivé que había zonas de verdad, ahora registro el zoneX.
 	cameraLocked = true
 	var halfScreen = get_viewport().get_visible_rect().size.x / 2.0
 	camera.limit_left  = zoneX - halfScreen

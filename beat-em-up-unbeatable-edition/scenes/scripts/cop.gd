@@ -1,4 +1,5 @@
 extends CharacterBody2D
+#CORRECCION: Agrandé la colisión del body del poli para que se le pueda pegar más fácil, pero ahora no lo puedo rodear. Tenés que usar un Area2D para el daño y el body tiene que ser un cuadradito chiquito que ocupe el espacio de los pies nada más, para poder moverse por el mapa. No pude usar el mapa para jugar, solo esperaba a la izq de todo y pegaba porque no podía pasarles por al lado.
 
 @export var HEALTH = 30
 @export var HIT = 5
@@ -42,6 +43,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
 
 func chase():
+	#CORRECCION: Al usar scripts distintos en lugar de parametrizar te terminás olvidando de copiar las cosas que vas cambiando, como esto que no está en cop.gd
 	if !is_instance_valid(jugador):
 		return
 	if state == State.DAMAGE or state == State.COMBAT or ! is_instance_valid(jugador) :

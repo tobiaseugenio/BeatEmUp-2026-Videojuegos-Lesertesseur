@@ -1,4 +1,5 @@
 extends Node2D
+#CORRECCION: Bueno, igual que en las otras.
 
 @export var objective = 2
 @export var zones: Array[int] = [578, 1024, 1900, 2300]
